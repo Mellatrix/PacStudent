@@ -1,31 +1,37 @@
 fileFormatVersion: 2
-guid: c8695a8a61550dd44989b1390d3f999a
+guid: a925f66db87ebbd499150f4500dd1664
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2603009479288237774
-    second: Goblin-Run_0
+      213: 8749302817991680212
+    second: Goblin_0
   - first:
-      213: 3038046217153085558
-    second: Goblin-Run_1
+      213: 4475375876111409798
+    second: Goblin_1
   - first:
-      213: 1999158305879384497
-    second: Goblin-Run_2
+      213: 3386398104049418772
+    second: Goblin_2
   - first:
-      213: -1765684280210887415
-    second: Goblin-Run_3
+      213: 1053128917049471962
+    second: Goblin_3
   - first:
-      213: -4150142541654669804
-    second: Goblin-Run_4
+      213: -6101537807208611024
+    second: Goblin_4
   - first:
-      213: -7523219468639677097
-    second: Goblin-Run_5
+      213: -5209251823262861144
+    second: Goblin_5
   - first:
-      213: 5765212042726211639
-    second: Goblin-Run_6
+      213: -5397750920153071603
+    second: Goblin_6
   - first:
-      213: -4806289617167973264
-    second: Goblin-Run_7
+      213: 4284684421114291845
+    second: Goblin_7
+  - first:
+      213: -882355604934026266
+    second: Goblin_8
+  - first:
+      213: -656960317098500660
+    second: Goblin_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -147,169 +153,211 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Goblin-Run_0
+      name: Goblin_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 98
-        width: 29
-        height: 29
+        x: 0
+        y: 512
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 231dc008ba040ebd0800000000000000
-      internalID: -2603009479288237774
+      spriteID: b0f924a1d67600c429423c8b28878f97
+      internalID: 508808138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_1
+      name: Goblin_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 98
-        width: 29
-        height: 29
+        x: 128
+        y: 512
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 67001a030fe492a20800000000000000
-      internalID: 3038046217153085558
+      spriteID: ffda068a1e5ef184592e54e8a97d1934
+      internalID: 369554409
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_2
+      name: Goblin_2
       rect:
         serializedVersion: 2
-        x: 2
-        y: 66
-        width: 29
-        height: 29
+        x: 0
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 1b166bf13ef6ebb10800000000000000
-      internalID: 1999158305879384497
+      spriteID: 9d3f8698278d11642a7a8ccc4a94509d
+      internalID: 2140577457
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_3
+      name: Goblin_3
       rect:
         serializedVersion: 2
-        x: 34
-        y: 66
-        width: 29
-        height: 29
+        x: 128
+        y: 384
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 90de98c80870f77e0800000000000000
-      internalID: -1765684280210887415
+      spriteID: 1e47e97a44fa11548839d4b1796d99c9
+      internalID: -1454689298
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_4
+      name: Goblin_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 34
-        width: 26
-        height: 29
+        x: 0
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 416cf65c85bb766c0800000000000000
-      internalID: -4150142541654669804
+      spriteID: e9cb86b27878a7e4e870b5299a41398c
+      internalID: 1709259918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_5
+      name: Goblin_5
       rect:
         serializedVersion: 2
-        x: 35
-        y: 34
-        width: 26
-        height: 29
+        x: 128
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 755dd64c0c7289790800000000000000
-      internalID: -7523219468639677097
+      spriteID: 1b27d9b8894026942948b5f8a2c75087
+      internalID: -282815299
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_6
+      name: Goblin_6
       rect:
         serializedVersion: 2
-        x: 3
-        y: 2
-        width: 26
-        height: 29
+        x: 0
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 7300085bec5220050800000000000000
-      internalID: 5765212042726211639
+      spriteID: 13603e109b0fa3547a86d817200e13db
+      internalID: 1964983605
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Goblin-Run_7
+      name: Goblin_7
       rect:
         serializedVersion: 2
-        x: 35
-        y: 2
-        width: 26
-        height: 29
+        x: 128
+        y: 128
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0740e09de01ac4db0800000000000000
-      internalID: -4806289617167973264
+      spriteID: 2145b281e297c3c43bff8fd1b36d9517
+      internalID: 1066286624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d619d2647b9e48c4abbc0bc1b6a73c99
+      internalID: 463716103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Goblin_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 499fbd8d60f32ea45a818301ce21f8ae
+      internalID: 957335903
       vertices: []
       indices: 
       edges: []
@@ -317,7 +365,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 26ea3a885e7b0fe40904f2e3f6022c97
     internalID: 0
     vertices: []
     indices: 
@@ -325,14 +373,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Goblin-Run_0: -2603009479288237774
-      Goblin-Run_1: 3038046217153085558
-      Goblin-Run_2: 1999158305879384497
-      Goblin-Run_3: -1765684280210887415
-      Goblin-Run_4: -4150142541654669804
-      Goblin-Run_5: -7523219468639677097
-      Goblin-Run_6: 5765212042726211639
-      Goblin-Run_7: -4806289617167973264
+      Goblin_0: 508808138
+      Goblin_1: 369554409
+      Goblin_2: 2140577457
+      Goblin_3: -1454689298
+      Goblin_4: 1709259918
+      Goblin_5: -282815299
+      Goblin_6: 1964983605
+      Goblin_7: 1066286624
+      Goblin_8: 463716103
+      Goblin_9: 957335903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
