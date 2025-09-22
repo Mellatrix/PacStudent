@@ -28,6 +28,7 @@ public class AudioPreviewManager : MonoBehaviour
         PlaySfx(0);
     }
 
+    private Coroutine bgmRoutine;
     public void PlayBgm(int next)
     {
         if (bgmClips == null || bgmClips.Length == 0)
@@ -36,19 +37,37 @@ public class AudioPreviewManager : MonoBehaviour
             return;
         }
         bgmIndex = (bgmIndex + next) < 0 ? bgmClips.Length - 1 : (bgmIndex + next) % bgmClips.Length;
-        bgm.clip = bgmClips[bgmIndex].clip;
-        bgm.loop = bgmClips[bgmIndex].loop;
-        bgmText.text = bgmClips[bgmIndex].name;
+        
+        if (bgmRoutine != null)
+            StopCoroutine(bgmRoutine);
+        bgmRoutine = StartCoroutine(PlayClip(bgm, bgmClips[bgmIndex], bgmText));
+
         bgm.Play();
     }
 
+    private Coroutine sfxRoutine;
     public void PlaySfx(int next)
     {
         sfxIndex = (sfxIndex + next) < 0 ? sfxClips.Length - 1 : (sfxIndex + next) % sfxClips.Length;
-        sfx.clip = sfxClips[sfxIndex].clip;
-        sfx.loop = sfxClips[sfxIndex].loop;
-        sfxText.text = sfxClips[sfxIndex].name;
+        if (sfxRoutine != null)
+            StopCoroutine(sfxRoutine);
+
+        sfxRoutine = StartCoroutine(PlayClip(sfx, sfxClips[sfxIndex], sfxText));
+        
         sfx.Play();
+    }
+
+    IEnumerator PlayClip(AudioSource source, AudioClipData data, TextMeshProUGUI text)
+    {
+        text.text = data.name;
+        source.loop = data.loop;
+
+        foreach (AudioClip clip in data.clips)
+        {
+            source.clip = clip;
+            source.Play();
+            yield return new WaitForSeconds(clip.length);
+        }
     }
 }
 
@@ -56,6 +75,6 @@ public class AudioPreviewManager : MonoBehaviour
 public class AudioClipData
 {
     public string name;
-    public AudioClip clip;
+    public AudioClip[] clips;
     public bool loop;
 }
