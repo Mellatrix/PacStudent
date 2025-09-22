@@ -14,10 +14,9 @@ public class AudioPreviewManager : MonoBehaviour
     private void Awake()
     {
         bgm = gameObject.AddComponent<AudioSource>();
-        bgm.volume = 0.4f;
+        bgm.volume = 0.2f;
         sfx = gameObject.AddComponent<AudioSource>();
 
-        Debug.Log("yuhh" + bgmClips.Length);
         bgmIndex = 0;
         sfxIndex = 0;
     }
@@ -33,7 +32,6 @@ public class AudioPreviewManager : MonoBehaviour
     {
         if (bgmClips == null || bgmClips.Length == 0)
         {
-            Debug.LogWarning("No BGM clips assigned!");
             return;
         }
         bgmIndex = (bgmIndex + next) < 0 ? bgmClips.Length - 1 : (bgmIndex + next) % bgmClips.Length;
@@ -61,12 +59,16 @@ public class AudioPreviewManager : MonoBehaviour
     {
         text.text = data.name;
         source.loop = data.loop;
-
+        float t = 0f;
         foreach (AudioClip clip in data.clips)
         {
             source.clip = clip;
             source.Play();
-            yield return new WaitForSeconds(clip.length);
+            while (t < clip.length)
+            {
+                t += Time.deltaTime;
+                yield return null;
+            }
         }
     }
 }

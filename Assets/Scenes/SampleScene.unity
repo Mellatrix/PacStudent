@@ -44962,6 +44962,7 @@ GameObject:
   - component: {fileID: 989043183}
   - component: {fileID: 989043185}
   - component: {fileID: 989043182}
+  - component: {fileID: 989043186}
   m_Layer: 0
   m_Name: PacGoblin_Player
   m_TagString: Untagged
@@ -45054,7 +45055,7 @@ Transform:
   m_GameObject: {fileID: 989043181}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.488, y: 2.999, z: 0}
+  m_LocalPosition: {x: -4.133, y: 2.823, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -45072,21 +45073,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fc5ce46cf34eb49906d403defa4957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSounds:
-  - {fileID: 8300000, guid: 4e0964f8a681fc147b4b19f5e3c73f2a, type: 3}
-  - {fileID: 8300000, guid: c3229c3fdda09ce4396d84e537397b85, type: 3}
-  - {fileID: 8300000, guid: 8608f613facc5044abaa175f46c7f19f, type: 3}
-  - {fileID: 8300000, guid: 402b5b37c5c91b54f87aa9c8b808a038, type: 3}
-  - {fileID: 8300000, guid: b8ac951c7349ec149970d2f1e867d246, type: 3}
-  - {fileID: 8300000, guid: fafc2e78bc7c4a24595d6cd3174d66cf, type: 3}
-  - {fileID: 8300000, guid: 8bd2350eb17a1fc43b4dce7c77833db7, type: 3}
-  - {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
   waypoints:
   - {fileID: 1279394982}
   - {fileID: 2095697181}
   - {fileID: 623007003}
   - {fileID: 2059644581}
-  duration: 2
+  speed: 1
+  moveSounds:
+  - {fileID: 8300000, guid: c3229c3fdda09ce4396d84e537397b85, type: 3}
+  - {fileID: 8300000, guid: 8608f613facc5044abaa175f46c7f19f, type: 3}
+  - {fileID: 8300000, guid: 402b5b37c5c91b54f87aa9c8b808a038, type: 3}
+  - {fileID: 8300000, guid: fafc2e78bc7c4a24595d6cd3174d66cf, type: 3}
+  - {fileID: 8300000, guid: 8bd2350eb17a1fc43b4dce7c77833db7, type: 3}
+  - {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
+--- !u!82 &989043186
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989043181}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &990969691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80662,11 +80758,9 @@ MonoBehaviour:
     loop: 0
   - name: Move
     clips:
-    - {fileID: 8300000, guid: 4e0964f8a681fc147b4b19f5e3c73f2a, type: 3}
     - {fileID: 8300000, guid: c3229c3fdda09ce4396d84e537397b85, type: 3}
     - {fileID: 8300000, guid: 8608f613facc5044abaa175f46c7f19f, type: 3}
     - {fileID: 8300000, guid: 402b5b37c5c91b54f87aa9c8b808a038, type: 3}
-    - {fileID: 8300000, guid: b8ac951c7349ec149970d2f1e867d246, type: 3}
     - {fileID: 8300000, guid: fafc2e78bc7c4a24595d6cd3174d66cf, type: 3}
     - {fileID: 8300000, guid: 8bd2350eb17a1fc43b4dce7c77833db7, type: 3}
     - {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
