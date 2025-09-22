@@ -29431,7 +29431,6 @@ GameObject:
   m_Component:
   - component: {fileID: 632956177}
   - component: {fileID: 632956179}
-  - component: {fileID: 632956178}
   m_Layer: 0
   m_Name: BonusCherry_Honey
   m_TagString: Untagged
@@ -29448,34 +29447,12 @@ Transform:
   m_GameObject: {fileID: 632956176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7399998, y: -0.62415045, z: 0.03267048}
+  m_LocalPosition: {x: 1.6939865, y: -0.62768984, z: 0.03267048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 623890876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &632956178
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632956176}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9e30f10d77318eb41a457d7ed8c16dd5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &632956179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -91769,7 +91746,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2058575312}
   - component: {fileID: 2058575314}
-  - component: {fileID: 2058575313}
   m_Layer: 0
   m_Name: PowerPellet_Net
   m_TagString: Untagged
@@ -91792,28 +91768,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 623890876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2058575313
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058575311}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1257a59da3e6d384297403a275d6394e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &2058575314
 SpriteRenderer:
   m_ObjectHideFlags: 0
