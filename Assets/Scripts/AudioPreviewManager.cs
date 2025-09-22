@@ -17,6 +17,7 @@ public class AudioPreviewManager : MonoBehaviour
         bgm.volume = 0.4f;
         sfx = gameObject.AddComponent<AudioSource>();
 
+        Debug.Log("yuhh" + bgmClips.Length);
         bgmIndex = 0;
         sfxIndex = 0;
     }
@@ -27,7 +28,6 @@ public class AudioPreviewManager : MonoBehaviour
         PlaySfx(0);
     }
 
-    Coroutine bgmRoutine;
     public void PlayBgm(int next)
     {
         if (bgmClips == null || bgmClips.Length == 0)
@@ -36,32 +36,19 @@ public class AudioPreviewManager : MonoBehaviour
             return;
         }
         bgmIndex = (bgmIndex + next) < 0 ? bgmClips.Length - 1 : (bgmIndex + next) % bgmClips.Length;
-        if (bgmRoutine != null)
-            StopCoroutine(bgmRoutine);
-        bgmRoutine = StartCoroutine(PlayClips(bgm, bgmClips[bgmIndex], bgmText));
+        bgm.clip = bgmClips[bgmIndex].clip;
+        bgm.loop = bgmClips[bgmIndex].loop;
+        bgmText.text = bgmClips[bgmIndex].name;
         bgm.Play();
     }
 
-    Coroutine sfxRoutine;
     public void PlaySfx(int next)
     {
         sfxIndex = (sfxIndex + next) < 0 ? sfxClips.Length - 1 : (sfxIndex + next) % sfxClips.Length;
-        if (sfxRoutine != null)
-            StopCoroutine(sfxRoutine);
-        sfxRoutine = StartCoroutine(PlayClips(sfx, sfxClips[sfxIndex], sfxText));
+        sfx.clip = sfxClips[sfxIndex].clip;
+        sfx.loop = sfxClips[sfxIndex].loop;
+        sfxText.text = sfxClips[sfxIndex].name;
         sfx.Play();
-    }
-
-    IEnumerator PlayClips(AudioSource source, AudioClipData clipData, TextMeshProUGUI text)
-    {
-        text.text = clipData.name;
-        source.loop = clipData.loop;
-        foreach (AudioClip clip in clipData.clips)
-        {
-            source.clip = clip;
-            source.Play();
-            yield return new WaitForSeconds(clip.length);
-        }
     }
 }
 
@@ -69,6 +56,6 @@ public class AudioPreviewManager : MonoBehaviour
 public class AudioClipData
 {
     public string name;
-    public AudioClip[] clips;
+    public AudioClip clip;
     public bool loop;
 }
