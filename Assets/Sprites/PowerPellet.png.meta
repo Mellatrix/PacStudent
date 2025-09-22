@@ -132,10 +132,10 @@ TextureImporter:
       name: PowerPellet_0
       rect:
         serializedVersion: 2
-        x: 5
-        y: 1
-        width: 27
-        height: 26
+        x: 0
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,10 +153,10 @@ TextureImporter:
       name: PowerPellet_1
       rect:
         serializedVersion: 2
-        x: 37
-        y: 5
-        width: 25
-        height: 26
+        x: 128
+        y: 0
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,7 +173,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b75d40bae9327db4fa7212cb393d63e9
     internalID: 0
     vertices: []
     indices: 
