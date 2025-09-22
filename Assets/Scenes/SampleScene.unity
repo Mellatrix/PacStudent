@@ -5432,6 +5432,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1413450540}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -5475,6 +5479,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9927,6 +9935,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_5
       objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12976,6 +12988,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18771,6 +18787,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 922176065}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -18814,6 +18834,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21499,6 +21523,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1525122947}
     m_Modifications:
+    - target: {fileID: 3937760871010545687, guid: 8849cab15eaafa741a8545819fa74edb, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 8849cab15eaafa741a8545819fa74edb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -21731,6 +21759,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (19)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22261,6 +22293,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 568258103}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -23653,6 +23689,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1463560738}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -23696,6 +23736,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29387,7 +29431,6 @@ GameObject:
   m_Component:
   - component: {fileID: 632956177}
   - component: {fileID: 632956179}
-  - component: {fileID: 632956178}
   m_Layer: 0
   m_Name: BonusCherry_Honey
   m_TagString: Untagged
@@ -29404,34 +29447,12 @@ Transform:
   m_GameObject: {fileID: 632956176}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7399998, y: -0.62415045, z: 0.03267048}
+  m_LocalPosition: {x: 1.6939865, y: -0.62768984, z: 0.03267048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 623890876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &632956178
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 632956176}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9e30f10d77318eb41a457d7ed8c16dd5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &632956179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -35231,6 +35252,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_5
       objectReference: {fileID: 0}
+    - target: {fileID: 7580481645899263209, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35813,6 +35842,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1450546806}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -39839,7 +39872,7 @@ Transform:
   m_GameObject: {fileID: 908731356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.2500005, y: 1.6999998, z: 0.0070316205}
+  m_LocalPosition: {x: 2.142779, y: 1.6999998, z: 0.0070316205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41017,6 +41050,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_0 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -42097,7 +42134,7 @@ Transform:
   m_GameObject: {fileID: 941617555}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.05000019, y: 1.6500001, z: 0.0070316205}
+  m_LocalPosition: {x: 0.24518195, y: 1.6500001, z: 0.0070316205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -47820,6 +47857,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1524965778}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -47863,6 +47904,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -47925,6 +47970,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (20)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -57348,6 +57397,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1658426985}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -57391,6 +57444,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -61096,7 +61153,7 @@ Transform:
   m_GameObject: {fileID: 1345554490}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.1499996, y: 1.6500001, z: 0.0070316205}
+  m_LocalPosition: {x: 1.2439173, y: 1.6714602, z: 0.0070316205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -62298,6 +62355,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -64535,6 +64596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_0 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -66145,6 +66210,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_0 (27)
       objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -66721,6 +66790,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_5
       objectReference: {fileID: 0}
+    - target: {fileID: 7580481645899263209, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -67201,7 +67278,7 @@ Transform:
   m_GameObject: {fileID: 1484614854}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.3500006, y: 1.6999998, z: 0.0070316205}
+  m_LocalPosition: {x: 3.1415153, y: 1.6999998, z: 0.0070316205}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -69114,6 +69191,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71197,6 +71278,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1803654129}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -71240,6 +71325,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -71621,6 +71710,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_Name
       value: Tiles_5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -75636,6 +75729,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -81379,6 +81476,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -89838,6 +89939,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_0 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -90786,6 +90891,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tiles_5
       objectReference: {fileID: 0}
+    - target: {fileID: 7580481645899263209, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -91633,7 +91746,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2058575312}
   - component: {fileID: 2058575314}
-  - component: {fileID: 2058575313}
   m_Layer: 0
   m_Name: PowerPellet_Net
   m_TagString: Untagged
@@ -91656,28 +91768,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 623890876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &2058575313
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2058575311}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1257a59da3e6d384297403a275d6394e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &2058575314
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -92000,6 +92090,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 521213618}
     m_Modifications:
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3582060968258426747, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4458465110808880462, guid: 29a40361b458eb64cb8d621287be32d3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -94125,6 +94223,10 @@ PrefabInstance:
     - target: {fileID: 4623416766290797857, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
       propertyPath: m_Name
       value: Tiles_0 (21)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8714728206707109171, guid: 0d6e4ff47436c1644aa33507f334157c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
