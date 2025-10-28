@@ -25,11 +25,11 @@ public class ScenesManager : MonoBehaviour
 
     void Start()
     {
-        SceneManager.sceneLoaded += PlayBGM;
-        PlayBGM(SceneManager.GetActiveScene());
+        SceneManager.sceneLoaded += InitialiseLevel;
+        InitialiseLevel();
     }
 
-    private void PlayBGM(Scene scene, LoadSceneMode mode = LoadSceneMode.Single)
+    private void PlayBGM(Scene scene)
     {
         switch (scene.buildIndex)
         {
@@ -44,8 +44,21 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
+    private void InitialiseLevel(Scene scene = default, LoadSceneMode mode = LoadSceneMode.Single)
+    {
+        GameObject.FindGameObjectWithTag("L1")?.GetComponent<Button>().
+            onClick.AddListener(() => LoadScene("Level1"));
+        GameObject.FindGameObjectWithTag("L2")?.GetComponent<Button>().
+            onClick.AddListener(() => LoadScene("Level2"));
+        GameObject.FindGameObjectWithTag("Exit")?.GetComponent<Button>().
+            onClick.AddListener(() => LoadScene("StartScene"));
+        
+        PlayBGM(SceneManager.GetActiveScene());
+    }
+    
     public void LoadScene(string scene)
     {
         SceneManager.LoadScene(scene);
+        Debug.Log(scene);
     }
 }
