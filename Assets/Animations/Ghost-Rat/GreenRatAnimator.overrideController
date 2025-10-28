@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: GreenRatAnimator
+  m_Controller: {fileID: 9100000, guid: 7bd57959e8b12674e902b12ece8bdb77, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 6dcdd22e8493fb64dbd72ce514503563, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 3d3c8c6d5d8f0b343ad8890011af8f60, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 72cca7a6549449149b9d6397b1a1173e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d96a1d7bf295d2c4da10e2107728b37d, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 97fa80eced5c2bf4f92ae9248c363952, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0d80964ddcea9744790d2df9b4d4d6e9, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 70d49a7d1126b3f42ab960ac69b28a63, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 7c5c40fcea368ee4eaa3a4591eed3cc4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 652377bba2147744eb766786f62833d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 11add78725744be49b42341e847e3fdc, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 33b0be319ebc46e4a9ac387903367ae6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 01d5aaa053a06194c963552d5e78370e, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 224c04fa34c8fee48808baea5ac03dd0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a577137d34a18d847bcd65fa4af0a854, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d22ca34a527a1b94d9c9b5e16591beec, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a164b17426c3bc24487730355c3f2942, type: 2}
