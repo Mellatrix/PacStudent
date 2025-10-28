@@ -11793,7 +11793,7 @@ GameObject:
   - component: {fileID: 241965645}
   - component: {fileID: 241965644}
   m_Layer: 0
-  m_Name: Rat_18
+  m_Name: Rat3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39751,7 +39751,7 @@ GameObject:
   - component: {fileID: 829448531}
   - component: {fileID: 829448530}
   m_Layer: 0
-  m_Name: Rat_2
+  m_Name: Rat1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78703,7 +78703,7 @@ GameObject:
   - component: {fileID: 1686451238}
   - component: {fileID: 1686451237}
   m_Layer: 0
-  m_Name: Rat_10
+  m_Name: Rat2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80318,7 +80318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1725165549}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -81883,7 +81883,7 @@ GameObject:
   - component: {fileID: 1757259860}
   - component: {fileID: 1757259859}
   m_Layer: 0
-  m_Name: Rat_26
+  m_Name: Rat4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86959,7 +86959,7 @@ GameObject:
   - component: {fileID: 1844763856}
   - component: {fileID: 1844763860}
   m_Layer: 5
-  m_Name: CanvasHUD
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
