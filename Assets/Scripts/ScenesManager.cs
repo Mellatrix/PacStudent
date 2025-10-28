@@ -46,14 +46,19 @@ public class ScenesManager : MonoBehaviour
 
     private void InitialiseLevel(Scene scene = default, LoadSceneMode mode = LoadSceneMode.Single)
     {
+        SetSceneButtons();
+        
+        PlayBGM(SceneManager.GetActiveScene());
+    }
+
+    private void SetSceneButtons()
+    {
         GameObject.FindGameObjectWithTag("L1")?.GetComponent<Button>().
             onClick.AddListener(() => LoadScene("Level1"));
         GameObject.FindGameObjectWithTag("L2")?.GetComponent<Button>().
             onClick.AddListener(() => LoadScene("Level2"));
         GameObject.FindGameObjectWithTag("Exit")?.GetComponent<Button>().
             onClick.AddListener(() => LoadScene("StartScene"));
-        
-        PlayBGM(SceneManager.GetActiveScene());
     }
     
     public void LoadScene(string scene)
