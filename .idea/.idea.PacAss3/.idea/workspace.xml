@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4fb8ba45-c8ee-474d-86f2-63b92504ff9a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.PacAss3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PacAss3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Fonts/TitleFont.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/TitleFont.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioPreviewManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioPreviewManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +101,7 @@
       <option name="presentableId" value="Default" />
       <updated>1755839589258</updated>
       <workItem from="1755839590298" duration="125000" />
-      <workItem from="1761666358901" duration="1622000" />
+      <workItem from="1761666358900" duration="4252000" />
     </task>
     <servers />
   </component>
