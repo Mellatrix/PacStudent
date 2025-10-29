@@ -29,6 +29,33 @@ public class PlayerCollisionController : MonoBehaviour
         {
             TeleportToOtherSide(collision.transform);
         }
+        else if (collision.CompareTag("Pellet"))
+        {
+            AudioManager.instance.PlayAudioRandom("eat");
+            Destroy(collision.gameObject);
+            GameManager.instance.AddScore(10);
+        }
+        else if (collision.CompareTag("Cherry"))
+        {
+            AudioManager.instance.PlayAudioRandom("burp");
+            Destroy(collision.gameObject);
+            GameManager.instance.AddScore(100);
+        }
+        else if (collision.CompareTag("PowerPellet"))
+        {
+            AudioManager.instance.PlayAudioRandom("evil");
+            GameManager.instance.ActivateScaredMode(true);
+            Destroy(collision.gameObject);
+            GameManager.instance.AddScore(50);
+        }
+        else if (collision.CompareTag("Ghost"))
+        {
+            if (!GameManager.instance.CanHitGhost())
+            {
+                playerController.Die();
+                AudioManager.instance.PlayAudioRandom("die");
+            }
+        }
             
     }
 

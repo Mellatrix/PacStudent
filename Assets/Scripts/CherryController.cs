@@ -24,7 +24,6 @@ public class CherryController : MonoBehaviour
     public void Start()
     {
         mapPos = GameObject.FindGameObjectWithTag("Center").transform.position;
-        SpawnCherry();
     }
 
     public void SpawnCherry()
@@ -37,7 +36,7 @@ public class CherryController : MonoBehaviour
         isSpawning = true;
         yield return new WaitForSeconds(5f);
         cherry = Instantiate(prefab, RandomSpawnPos(), Quaternion.identity, transform);
-        StartCoroutine(FlyThroughMap(Random.Range(10, 15), cherry.transform.position));
+        StartCoroutine(FlyThroughMap(Random.Range(15, 20), cherry.transform.position));
         isSpawning = false;
     }
 

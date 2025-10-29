@@ -31,12 +31,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAudio(string name)
     {
-        activeAudios.Add(PlaySource(name));
+        PlaySource(name);
     }
 
     public void PlayAudioRandom(string name)
     {
-        activeAudios.Add(PlaySource(name, true));
+        PlaySource(name, true);
     }
     
     private AudioSource PlaySource(string name, bool randomize = false)
@@ -54,6 +54,9 @@ public class AudioManager : MonoBehaviour
         source.clip = clip;
         source.volume = randomize? Random.Range(data.volume - 0.55f, data.volume + 0.25f): data.volume;
         source.loop = data.loop;
+        
+        if (source.loop)
+            activeAudios.Add(source);
 
         source.Play();
         
@@ -63,16 +66,23 @@ public class AudioManager : MonoBehaviour
         return source;
     }
 
-    private AudioSource GetSource(string name)
+    public AudioSource GetSource(string name)
     {
         foreach (AudioSource source in activeAudios)
         {
-            if (source.clip.name.Contains(name))
+            if (source == null) return null;
+            if (source.name.StartsWith(name, StringComparison.OrdinalIgnoreCase))
                 return source;
         }
         
         return null;
     }
+
+    public void StopAudio(string name)
+    {
+        Destroy(GetSource(name)?.gameObject);
+    }
+    
     private void Start()
     {
         

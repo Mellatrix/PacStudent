@@ -76,3 +76,33 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
     loop: 0
     volume: 1
+  - name: gameScared
+    clips:
+    - {fileID: 8300000, guid: 821b39f44f029054494044326309b140, type: 3}
+    loop: 0
+    volume: 0.4
+  - name: hit
+    clips:
+    - {fileID: 8300000, guid: dacae67af8b29e942a384f13730f8106, type: 3}
+    - {fileID: 8300000, guid: da8cadd888683fe4197b5d597aa726e3, type: 3}
+    - {fileID: 8300000, guid: b5129620bd66e884c9df0d623130dc0d, type: 3}
+    - {fileID: 8300000, guid: 577b2a614f39f354db4a4af454ae56a7, type: 3}
+    - {fileID: 8300000, guid: ca8ac46398c64b8429f1cc6516f5ec5f, type: 3}
+    loop: 0
+    volume: 1
+  - name: burp
+    clips:
+    - {fileID: 8300000, guid: 140ef85302e5c6442a5edc612d8907db, type: 3}
+    loop: 0
+    volume: 0.7
+  - name: evil
+    clips:
+    - {fileID: 8300000, guid: 6276d1d06a542ef4e98a83acea65cb19, type: 3}
+    loop: 0
+    volume: 0.7
+  - name: die
+    clips:
+    - {fileID: 8300000, guid: 94c341d34eaee2345a15d404b77fba00, type: 3}
+    - {fileID: 8300000, guid: 44e285a19d946b242a7bcd4cbd08776e, type: 3}
+    loop: 0
+    volume: 1

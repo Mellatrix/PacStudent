@@ -56,23 +56,27 @@ public class PacStudentController : MonoBehaviour
         
         while (true)
         {
-            if (!isLerping)
+            if (GameManager.instance.gameReady)
             {
-                Vector2Int newCoordinates;
-                if (IsWalkable(currentCoordinates, out newCoordinates))
+                if (!isLerping)
                 {
-                    ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
-                    yield return LerpPlayer(newCoordinates);
+                    Vector2Int newCoordinates;
+                    if (IsWalkable(currentCoordinates, out newCoordinates))
+                    {
+                        ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
+                        yield return LerpPlayer(newCoordinates);
+                    }
+                    else
+                    {
+                        animator.SetBool("Exit", true);
+                        collisionController.OffsetCollider(Vector2.zero);
+                    }
                 }
-                else
-                {
-                    animator.SetBool("Exit", true);
-                    collisionController.OffsetCollider(Vector2.zero);
-                }
+                
+                yield return null;
             }
             
             yield return null;
-            Debug.Log("Running");
         }
     }
     
@@ -113,7 +117,7 @@ public class PacStudentController : MonoBehaviour
         }
         
         //Debug.Log(input.ToString() + " " + gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable));
-        Debug.Log(newCoordinates);
+        //Debug.Log(newCoordinates);
         return gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable);
     }
 
@@ -228,5 +232,10 @@ public class PacStudentController : MonoBehaviour
         {
             tp.gameObject.SetActive(true);
         }
+    }
+
+    public void Die()
+    {
+        animator.SetTrigger("Die");
     }
 }
