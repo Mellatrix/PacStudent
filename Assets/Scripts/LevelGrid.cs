@@ -16,6 +16,25 @@ public class LevelGridManager : MonoBehaviour
         quadrantData = ReadQuadrantData(out centerline);
         gridData = GenerateGridFromQuadrantData(quadrantData, centerline);
     }
+    
+    public static Vector2Int GetCoordinatesFromPoint(Vector2 point)
+    {
+        int rows = gridData.GetLength(0);
+        int cols = gridData.GetLength(1);
+
+        for (int r = 0; r < rows; r++)
+        {
+            for (int c = 0; c < cols; c++)
+            {
+                if (Vector2.Distance(gridData[r, c].position, point) < 0.02f)
+                {
+                    return new Vector2Int(r, c);
+                }
+            }
+        }
+        
+        return Vector2Int.zero;
+    }
 
     GridData[,] ReadQuadrantData(out GridData[,] _centerLine)
     {
