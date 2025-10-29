@@ -44,4 +44,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fea6d85762f9ced449afb5c2b5d89a3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioDatas: []
+  audioDatas:
+  - name: btn
+    clips:
+    - {fileID: 8300000, guid: 8d2f6ff1afdc3254589ee2f10e7b14ac, type: 3}
+    loop: 0
+    volume: 1
+  - name: gameBGM
+    clips:
+    - {fileID: 8300000, guid: 63d31f239f0ba1e44a14f507310e2c3b, type: 3}
+    loop: 1
+    volume: 0.25
+  - name: startBGM
+    clips:
+    - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
+    loop: 1
+    volume: 0.25
+  - name: eat
+    clips:
+    - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
+    loop: 0
+    volume: 1
+  - name: walk
+    clips:
+    - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
+    loop: 0
+    volume: 1

@@ -46,7 +46,7 @@ public class PacStudentController : MonoBehaviour
                 Vector2Int newCoordinates;
                 if (IsWalkable(currentCoordinates, out newCoordinates))
                 {
-                    ApplyMoveAnimation(newCoordinates - currentCoordinates);
+                    ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
                     yield return LerpPlayer(newCoordinates);
                 }
             }
@@ -99,7 +99,7 @@ public class PacStudentController : MonoBehaviour
     {
         isLerping = true;
         float t = 0;
-        float duration = speed / 1; //1 tile
+        float duration = 1/speed; //1 tile
 
         Vector2 startPos = gridData[currentCoordinates.x, currentCoordinates.y].position;
         Vector2 endPos = gridData[targetCoordinates.x, targetCoordinates.y].position;
@@ -107,7 +107,7 @@ public class PacStudentController : MonoBehaviour
         while (t < duration)
         {
             t += Time.deltaTime;
-            transform.position = Vector3.Lerp(startPos, endPos, t);
+            transform.position = Vector3.Lerp(startPos, endPos, t/duration);
             yield return null;
         }
 
@@ -117,6 +117,14 @@ public class PacStudentController : MonoBehaviour
 
     void ApplyMoveAnimation(Vector2 dir)
     {
+        if (dir.normalized == Vector2.up)
+            animator.SetTrigger("Up");
+        else if (dir.normalized == Vector2.down)
+            animator.SetTrigger("Down");
+        else if (dir.normalized == Vector2.left)
+            animator.SetTrigger("Left");
+        else if (dir.normalized == Vector2.right)
+            animator.SetTrigger("Right");
     }
 
     private void Update()
