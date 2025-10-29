@@ -7,6 +7,8 @@ TagManager:
   - L1
   - L2
   - Exit
+  - Center
+  - Cherry
   layers:
   - Default
   - TransparentFX
@@ -14,7 +16,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Borders
   - 
   - 
   - 
@@ -49,4 +51,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2009769017
+    locked: 0
+  - name: Cherry
+    uniqueID: 1381548979
     locked: 0
