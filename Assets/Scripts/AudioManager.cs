@@ -33,8 +33,13 @@ public class AudioManager : MonoBehaviour
     {
         activeAudios.Add(PlaySource(name));
     }
+
+    public void PlayAudioRandom(string name)
+    {
+        activeAudios.Add(PlaySource(name, true));
+    }
     
-    private AudioSource PlaySource(string name)
+    private AudioSource PlaySource(string name, bool randomize = false)
     {
         AudioClipData data = GetClipData(name);
         if (data == null) 
@@ -44,8 +49,10 @@ public class AudioManager : MonoBehaviour
 
         GameObject obj = new GameObject(name + " clip");
         AudioSource source = obj.AddComponent<AudioSource>();
+        
+        source.pitch = randomize? Random.Range(0.8f, 1.2f) : 1;
         source.clip = clip;
-        source.volume = data.volume;
+        source.volume = randomize? Random.Range(data.volume - 0.55f, data.volume + 0.25f): data.volume;
         source.loop = data.loop;
 
         source.Play();

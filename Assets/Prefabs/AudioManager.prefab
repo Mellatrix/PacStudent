@@ -62,11 +62,17 @@ MonoBehaviour:
     volume: 0.25
   - name: eat
     clips:
-    - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
+    - {fileID: 8300000, guid: 7dfaf48f566f72d4c89e8c0a1e9be3d0, type: 3}
+    - {fileID: 8300000, guid: 98f4370ffd69b68439356e1a87d7a87d, type: 3}
     loop: 0
     volume: 1
   - name: walk
     clips:
-    - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
+    - {fileID: 8300000, guid: c3229c3fdda09ce4396d84e537397b85, type: 3}
+    - {fileID: 8300000, guid: 8608f613facc5044abaa175f46c7f19f, type: 3}
+    - {fileID: 8300000, guid: 402b5b37c5c91b54f87aa9c8b808a038, type: 3}
+    - {fileID: 8300000, guid: fafc2e78bc7c4a24595d6cd3174d66cf, type: 3}
+    - {fileID: 8300000, guid: 8bd2350eb17a1fc43b4dce7c77833db7, type: 3}
+    - {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
     loop: 0
     volume: 1

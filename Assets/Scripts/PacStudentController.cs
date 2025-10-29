@@ -23,10 +23,13 @@ public class PacStudentController : MonoBehaviour
     private bool isLerping;
 
     private Animator animator;
+    
+    ParticleSystemRenderer particleRenderer;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        particleRenderer = GetComponentInChildren<ParticleSystemRenderer>();
     }
 
     void Start()
@@ -76,7 +79,7 @@ public class PacStudentController : MonoBehaviour
         switch (input)
         {
             case PlayerInput.none:
-                break;
+                return false;
             case PlayerInput.w:
                 newCoordinates.x -= 1;
                 break;
@@ -91,7 +94,7 @@ public class PacStudentController : MonoBehaviour
                 break;
         }
         
-        Debug.Log(input.ToString() + " " + gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable));
+        //Debug.Log(input.ToString() + " " + gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable));
         return gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable);
     }
 
@@ -101,12 +104,20 @@ public class PacStudentController : MonoBehaviour
         float t = 0;
         float duration = 1/speed; //1 tile
 
+        float stepSoundTimer = duration;
+
         Vector2 startPos = gridData[currentCoordinates.x, currentCoordinates.y].position;
         Vector2 endPos = gridData[targetCoordinates.x, targetCoordinates.y].position;
         
         while (t < duration)
         {
+            if (stepSoundTimer >= duration/3)
+            {
+                stepSoundTimer = 0f;
+                AudioManager.instance.PlayAudioRandom("walk");
+            }
             t += Time.deltaTime;
+            stepSoundTimer += Time.deltaTime;
             transform.position = Vector3.Lerp(startPos, endPos, t/duration);
             yield return null;
         }
@@ -117,14 +128,21 @@ public class PacStudentController : MonoBehaviour
 
     void ApplyMoveAnimation(Vector2 dir)
     {
+        if (dir.normalized == Vector2.down)
+        {
+            animator.SetTrigger("Down");
+            particleRenderer.sortingOrder = 0;
+            return;
+        }
+        
         if (dir.normalized == Vector2.up)
             animator.SetTrigger("Up");
-        else if (dir.normalized == Vector2.down)
-            animator.SetTrigger("Down");
         else if (dir.normalized == Vector2.left)
             animator.SetTrigger("Left");
         else if (dir.normalized == Vector2.right)
             animator.SetTrigger("Right");
+
+        particleRenderer.sortingOrder = 12;
     }
 
     private void Update()
