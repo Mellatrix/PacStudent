@@ -35,7 +35,7 @@ public class CherryController : MonoBehaviour
     IEnumerator SpawnTimer()
     {
         isSpawning = true;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(5f);
         cherry = Instantiate(prefab, RandomSpawnPos(), Quaternion.identity, transform);
         StartCoroutine(FlyThroughMap(Random.Range(10, 15), cherry.transform.position));
         isSpawning = false;

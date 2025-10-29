@@ -7,6 +7,7 @@ public class PlayerCollisionController : MonoBehaviour
 {
     public GameObject collisionParticles;
     private BoxCollider2D collider;
+    PacStudentController playerController;
 
     private void Awake()
     {
@@ -24,11 +25,26 @@ public class PlayerCollisionController : MonoBehaviour
         {
             CollideWithWall(collision.ClosestPoint(transform.position));
         }
+        else if (collision.CompareTag("Teleporter"))
+        {
+            TeleportToOtherSide(collision.transform);
+        }
+            
+    }
+
+    void TeleportToOtherSide(Transform currTeleporter)
+    {
+        playerController.Teleport(currTeleporter);
     }
 
     void CollideWithWall(Vector2 collisionPos)
     {
         Instantiate(collisionParticles, collisionPos, Quaternion.identity, transform);
         AudioManager.instance.PlayAudioRandom("hit");
+    }
+
+    public void SetPlayerController(PacStudentController pacStudentController)
+    {
+        playerController = pacStudentController;
     }
 }

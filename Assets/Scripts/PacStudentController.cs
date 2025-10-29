@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// using this mainly for movement and animation
+/// </summary>
 public class PacStudentController : MonoBehaviour
 {
     public float speed;
@@ -21,30 +24,36 @@ public class PacStudentController : MonoBehaviour
     PlayerInput currentInput = PlayerInput.none; // curr move dir
 
     private bool isLerping;
-
     private Animator animator;
     
     ParticleSystemRenderer particleRenderer;
-    
+    ParticleSystem particle;
     PlayerCollisionController collisionController;
+
+    [SerializeField]
+    private Transform[] teleporters;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         particleRenderer = GetComponentInChildren<ParticleSystemRenderer>();
+        particle = GetComponentInChildren<ParticleSystem>();
         collisionController = GetComponent<PlayerCollisionController>();
+        collisionController.SetPlayerController(this);
     }
 
     void Start()
     {
         gridData = LevelGridManager.gridData;
         currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
-
+        
         StartCoroutine(ApplyPlayerInput());
     }
     
     IEnumerator ApplyPlayerInput()
     {
+        currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
+        
         while (true)
         {
             if (!isLerping)
@@ -63,6 +72,7 @@ public class PacStudentController : MonoBehaviour
             }
             
             yield return null;
+            Debug.Log("Running");
         }
     }
     
@@ -103,6 +113,7 @@ public class PacStudentController : MonoBehaviour
         }
         
         //Debug.Log(input.ToString() + " " + gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable));
+        Debug.Log(newCoordinates);
         return gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable);
     }
 
@@ -186,6 +197,36 @@ public class PacStudentController : MonoBehaviour
         else if (Input.GetKey(KeyCode.D))
         {
             lastInput = PlayerInput.d;
+        }
+    }
+
+    public void Teleport(Transform teleporter)
+    {
+        Vector2Int spawnPoint = teleporters[0] == teleporter ? new Vector2Int(14,27) : new Vector2Int(14,0);
+        particle.Stop();
+
+        foreach (Transform tp in teleporters)
+        {
+            tp.gameObject.SetActive(false);
+        }
+        
+        StopAllCoroutines();
+        isLerping = false;
+        
+        transform.position = gridData[spawnPoint.x, spawnPoint.y].position;
+        currentCoordinates = spawnPoint;
+
+        StartCoroutine(ApplyPlayerInput());
+        particle.Play();
+        
+        Invoke("EnableTeleporter", 0.9f);
+    }
+
+    void EnableTeleporter()
+    {
+        foreach (Transform tp in teleporters)
+        {
+            tp.gameObject.SetActive(true);
         }
     }
 }

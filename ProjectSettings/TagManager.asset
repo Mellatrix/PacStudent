@@ -12,6 +12,7 @@ TagManager:
   - Pellet
   - PowerPellet
   - Tile
+  - Teleporter
   layers:
   - Default
   - TransparentFX
