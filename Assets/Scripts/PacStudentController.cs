@@ -25,11 +25,14 @@ public class PacStudentController : MonoBehaviour
     private Animator animator;
     
     ParticleSystemRenderer particleRenderer;
+    
+    PlayerCollisionController collisionController;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         particleRenderer = GetComponentInChildren<ParticleSystemRenderer>();
+        collisionController = GetComponent<PlayerCollisionController>();
     }
 
     void Start()
@@ -51,6 +54,11 @@ public class PacStudentController : MonoBehaviour
                 {
                     ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
                     yield return LerpPlayer(newCoordinates);
+                }
+                else
+                {
+                    animator.SetBool("Exit", true);
+                    collisionController.OffsetCollider(Vector2.zero);
                 }
             }
             
@@ -128,19 +136,30 @@ public class PacStudentController : MonoBehaviour
 
     void ApplyMoveAnimation(Vector2 dir)
     {
+        animator.SetBool("Exit", false);
         if (dir.normalized == Vector2.down)
         {
             animator.SetTrigger("Down");
+            collisionController.OffsetCollider(Vector2.down);
             particleRenderer.sortingOrder = 0;
             return;
         }
-        
+
         if (dir.normalized == Vector2.up)
+        {
             animator.SetTrigger("Up");
+            collisionController.OffsetCollider(Vector2.up);
+        }
         else if (dir.normalized == Vector2.left)
+        {
             animator.SetTrigger("Left");
+            collisionController.OffsetCollider(Vector2.left);
+        }
         else if (dir.normalized == Vector2.right)
+        {
             animator.SetTrigger("Right");
+            collisionController.OffsetCollider(Vector2.right);
+        }
 
         particleRenderer.sortingOrder = 12;
     }

@@ -92661,6 +92661,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: audioDatas.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: audioDatas.Array.data[5].name
+      value: hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: audioDatas.Array.data[5].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: audioDatas.Array.data[5].clips.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: 'audioDatas.Array.data[5].clips.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: dacae67af8b29e942a384f13730f8106, type: 3}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: 'audioDatas.Array.data[5].clips.Array.data[1]'
+      value: 
+      objectReference: {fileID: 8300000, guid: da8cadd888683fe4197b5d597aa726e3, type: 3}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: 'audioDatas.Array.data[5].clips.Array.data[2]'
+      value: 
+      objectReference: {fileID: 8300000, guid: b5129620bd66e884c9df0d623130dc0d, type: 3}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: 'audioDatas.Array.data[5].clips.Array.data[3]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 577b2a614f39f354db4a4af454ae56a7, type: 3}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: 'audioDatas.Array.data[5].clips.Array.data[4]'
+      value: 
+      objectReference: {fileID: 8300000, guid: ca8ac46398c64b8429f1cc6516f5ec5f, type: 3}
+    - target: {fileID: 7232842801481426831, guid: 9d363879035f64248b1ff6b05869b0d2, type: 3}
+      propertyPath: 'audioDatas.Array.data[5].clips.Array.data[5]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -100245,7 +100285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3102220825872087325, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.597
+      value: 4.596
       objectReference: {fileID: 0}
     - target: {fileID: 3102220825872087325, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
       propertyPath: m_LocalPosition.z
@@ -100278,58 +100318,6 @@ PrefabInstance:
     - target: {fileID: 3102220825872087325, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: ShapeModule.m_Scale.x
-      value: 0.42
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: 0.23147315
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
-      value: 2.604718
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inSlope
-      value: -2.61145
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: 2.604718
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].inWeight
-      value: 0.1817989
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
-      value: -2.61145
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outWeight
-      value: 0.33333334
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761890953502736245, guid: acc0333a4adaa8d45bf08a75a4a8c822, type: 3}
-      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
-      value: 136
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

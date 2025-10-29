@@ -9,6 +9,9 @@ TagManager:
   - Exit
   - Center
   - Cherry
+  - Pellet
+  - PowerPellet
+  - Tile
   layers:
   - Default
   - TransparentFX
