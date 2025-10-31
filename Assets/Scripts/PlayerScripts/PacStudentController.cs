@@ -11,6 +11,12 @@ public class PacStudentController : MonoBehaviour
     public float speed;
     GridData[,] gridData;
     private Vector2Int currentCoordinates;
+
+    public Vector2Int GetCoordinates()
+    {
+        return currentCoordinates;
+    }
+    
     enum PlayerInput
     {
         none,

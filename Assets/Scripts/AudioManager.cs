@@ -87,6 +87,7 @@ public class AudioManager : MonoBehaviour
 
         GameObject obj = new GameObject(name + " clip");
         AudioSource source = obj.AddComponent<AudioSource>();
+        DontDestroyOnLoad(obj);
         
         source.pitch = randomize? Random.Range(0.8f, 1.2f) : 1;
         source.clip = clip;

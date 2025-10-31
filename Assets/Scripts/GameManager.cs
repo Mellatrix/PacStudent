@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("In-Scene References")]
     public GhostsManager Ghosts;
     public CherryController Cherry;
+    public PacStudentController Player;
     
     [HideInInspector]
     public bool gameReady = false;
