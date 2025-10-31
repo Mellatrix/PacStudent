@@ -306,7 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0d65a272a2fdf740accc96e9bfd7174, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultDirection: 0
+  defaultDirection: 3
   speed: 1
   behaviour: 1
   isDead: 0

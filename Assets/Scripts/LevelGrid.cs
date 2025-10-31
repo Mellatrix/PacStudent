@@ -26,7 +26,7 @@ public class LevelGridManager : MonoBehaviour
         {
             for (int c = 0; c < cols; c++)
             {
-                if (Vector2.Distance(gridData[r, c].position, point) < 0.02f)
+                if (Vector2.Distance(gridData[r, c].position, point) < 0.1f)
                 {
                     return new Vector2Int(r, c);
                 }
@@ -75,7 +75,7 @@ public class LevelGridManager : MonoBehaviour
                         
                         case 1 or 2:
                             _currGD.wallType = GridData.WallType.outer;
-                            Debug.Log(tileType + " " + _currGD.wallType);
+                           //Debug.Log(tileType + " " + _currGD.wallType);
                             goto default;
                             
                         case 3 or 4:
