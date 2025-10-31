@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour
         Ghosts.ghostState = active? GhostsManager.GhostState.Scared : GhostsManager.GhostState.Normal;
         
         AudioManager.instance.StopAudio(active? "gameBGM" : "gameScared");
-        AudioManager.instance.PlayAudio(active? "gameScared" : "gameBGM");
+        AudioManager.instance.PlayAudioIncreasing(active? "gameScared" : "gameBGM", active? 0f: 0.5f);
     }
 
     void UpdateScaredTimer()
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviour
         if (scaredTimer <= 0)
             ActivateScaredMode(false);
 
-        if (scaredTimer <= 3f)
+        if (scaredTimer <= 3f && Ghosts.ghostState == GhostsManager.GhostState.Scared)
         {
             // ghost animator recovering
             Ghosts.ghostState = GhostsManager.GhostState.Recovering;
@@ -160,8 +160,9 @@ public class GameManager : MonoBehaviour
         }
     }
     
-    public bool CanHitGhost()   // add ghost hit as param
+    public bool CanHitGhost(GhostController ghost)   // add ghost hit as param
     {
+        Debug.Log(Ghosts.ghostState);
         switch (Ghosts.ghostState)
         {
             case GhostsManager.GhostState.Normal:
@@ -170,6 +171,7 @@ public class GameManager : MonoBehaviour
                 return false;   // play die anim, particles, sound
             case GhostsManager.GhostState.Scared or GhostsManager.GhostState.Recovering:
                 // ghost die > animator dead
+                ghost.Die();
                 AddScore(300);
                 return true;
         }

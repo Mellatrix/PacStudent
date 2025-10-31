@@ -21,6 +21,7 @@ public class GhostsManager : MonoBehaviour
         set
         {
             state = value; 
+            Debug.Log(state);
             UpdateAnimators();
         }
     }
@@ -34,8 +35,11 @@ public class GhostsManager : MonoBehaviour
     {
         foreach (Animator animator in animators)
         {
-            Debug.Log(ghostState.ToString());
-            animator.SetTrigger(ghostState.ToString());
+            /*animator.SetInteger("GhostState", (int)ghostState);*/
+            for (int i = 0; i < 3; i++)
+            {
+                animator.SetLayerWeight(i, (int)state == i? 1 : 0);
+            }
         }
     }
 

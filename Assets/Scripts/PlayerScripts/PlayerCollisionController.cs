@@ -50,7 +50,8 @@ public class PlayerCollisionController : MonoBehaviour
         }
         else if (collision.CompareTag("Ghost"))
         {
-            if (!GameManager.instance.CanHitGhost())
+            GhostController ghost = collision.GetComponent<GhostController>();
+            if (!GameManager.instance.CanHitGhost(ghost))
             {
                 playerController.Die();
                 AudioManager.instance.PlayAudioRandom("die");

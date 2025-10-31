@@ -38,6 +38,29 @@ public class AudioManager : MonoBehaviour
     {
         PlaySource(name, true);
     }
+
+    public void PlayAudioIncreasing(string name, float duration)
+    {
+        StartCoroutine(IncreaseVolumeOverTime(PlaySource(name), duration));
+    }
+
+    IEnumerator IncreaseVolumeOverTime(AudioSource source, float duration)
+    {
+        float targetVolume = source.volume;
+        source.volume = 0;
+        float t = 0;
+
+        while (t < duration)
+        {
+            if (source == null) yield break;
+            t += Time.deltaTime;
+            source.volume = Mathf.Lerp(0, targetVolume, t/duration);
+            yield return null;
+        }
+        
+        if (source == null) yield break;
+        source.volume = targetVolume;
+    }
     
     private AudioSource PlaySource(string name, bool randomize = false)
     {
@@ -57,12 +80,11 @@ public class AudioManager : MonoBehaviour
         
         if (source.loop)
             activeAudios.Add(source);
-
+        else
+            Destroy(obj, clip.length);
+        
         source.Play();
         
-        if (!data.loop)
-            Destroy(obj, clip.length);
-
         return source;
     }
 
@@ -80,11 +102,11 @@ public class AudioManager : MonoBehaviour
 
     public void StopAudio(string name)
     {
-        Destroy(GetSource(name)?.gameObject);
+        AudioSource source = GetSource(name);
+        if (source == null) 
+            return;
+        activeAudios.Remove(source);
+        Destroy(source.gameObject);
     }
     
-    private void Start()
-    {
-        
-    }
 }
