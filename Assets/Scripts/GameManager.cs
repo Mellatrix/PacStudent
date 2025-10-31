@@ -9,33 +9,26 @@ using UnityEngine.Events;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    [Header("In-Scene References")]
     public GhostsManager Ghosts;
     public CherryController Cherry;
     
+    [HideInInspector]
     public bool gameReady = false;
-    
+    [HideInInspector]
     public UnityEvent OnGameReady;
-
+    
+    [Header("Game State")]
+    public GameState state;
     public enum GameState
     {
         normal,
         scared,
         eaten
     }
-    public GameState state;
-
-    private void Awake()
-    {
-        instance = this;
-
-        for (int i = 0; i < scaredTimerObjs.Length; i++)
-        {
-            scaredTimerTexts[i] = scaredTimerObjs[i].GetComponentInChildren<TextMeshProUGUI>();
-        }
-
-        OnGameReady.AddListener(()=> Cherry.SpawnCherry());
-    }
-
+    
+    [SerializeField, Header("Score UI")]
+    TextMeshProUGUI[] scoreTexts;
     private int _score = 0;
     int score
     {
@@ -49,17 +42,75 @@ public class GameManager : MonoBehaviour
         }
         get { return _score; }
     }
-    [SerializeField]
-    TextMeshProUGUI[] scoreTexts;
+
+    [SerializeField, Header("Timer UI")]
+    private TextMeshProUGUI[] timerTexts;
+    private float timer = 0f;
+    
+    private float scaredTimer = 0f;
+    [SerializeField, Header("Scared Timer UI")]
+    private GameObject[] scaredTimerObjs;
+    private TextMeshProUGUI[] scaredTimerTexts = new TextMeshProUGUI[2];
+    
+    [SerializeField, Header("Lives UI")]
+    private Transform[] lifeUIParents;
+    private int _lives = 3;
+    int lives
+    {
+        get { return _lives; }
+        set
+        {
+            _lives = value;
+            foreach (Transform parent in lifeUIParents)
+            {
+                parent.GetChild(lives).gameObject.SetActive(false);
+            }
+        }
+    }
+    
+    [SerializeField, Header("Go Timer UI")]
+    private TextMeshProUGUI goTimerText;
+    
+    private void Awake()
+    {
+        instance = this;
+
+        for (int i = 0; i < scaredTimerObjs.Length; i++)
+        {
+            scaredTimerTexts[i] = scaredTimerObjs[i].GetComponentInChildren<TextMeshProUGUI>();
+        }
+
+        OnGameReady.AddListener(()=> Cherry.SpawnCherry());
+    }
+    
+    void Start()
+    {
+        StartCoroutine(GoTimer());
+        
+    }
+
+    private void Update()
+    {
+        if (!gameReady) return;
+        
+        UpdateTimer();
+        if (state == GameState.scared)
+        {
+            UpdateScaredTimer();
+        }
+    }
+    
+    private void StartGame()
+    {
+        ActivateScaredMode(false);
+    }
 
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
     }
 
-    [SerializeField]
-    private TextMeshProUGUI[] timerTexts;
-    private float timer = 0f;
+    
     private void UpdateTimer()
     {
         timer += Time.deltaTime;
@@ -71,10 +122,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private float scaredTimer = 0f;
-    [SerializeField]
-    private GameObject[] scaredTimerObjs;
-    private TextMeshProUGUI[] scaredTimerTexts = new TextMeshProUGUI[2];
+    
     public void ActivateScaredMode(bool active)
     {
         state = active? GameState.scared :  GameState.normal;
@@ -111,47 +159,8 @@ public class GameManager : MonoBehaviour
             scaredTimerText.text = timeString;
         }
     }
-
-    void Start()
-    {
-        StartCoroutine(GoTimer());
-        
-    }
-
-    private void StartGame()
-    {
-        ActivateScaredMode(false);
-    }
-
-    private void Update()
-    {
-        if (!gameReady) return;
-        
-        UpdateTimer();
-        if (state == GameState.scared)
-        {
-            UpdateScaredTimer();
-        }
-    }
-
-    [SerializeField]
-    private Transform[] lifeUIParents;
-    private int _lives = 3;
-
-    int lives
-    {
-        get { return _lives; }
-        set
-        {
-            _lives = value;
-            foreach (Transform parent in lifeUIParents)
-            {
-                parent.GetChild(lives).gameObject.SetActive(false);
-            }
-        }
-    }
-
-    public bool CanHitGhost()
+    
+    public bool CanHitGhost()   // add ghost hit as param
     {
         switch (Ghosts.ghostState)
         {
@@ -168,7 +177,6 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-    public TextMeshProUGUI goTimerText;
 
     IEnumerator GoTimer()
     {
