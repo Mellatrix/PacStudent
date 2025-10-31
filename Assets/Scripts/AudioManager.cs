@@ -61,6 +61,21 @@ public class AudioManager : MonoBehaviour
         if (source == null) yield break;
         source.volume = targetVolume;
     }
+
+    public void ReplaceAudio(string currAudio, string newAudio)
+    {
+        AudioSource sourceToStop = GetSource(currAudio);
+        float time = 0;
+        if (sourceToStop != null)
+        {
+            time = sourceToStop.time;
+            activeAudios.Remove(sourceToStop);
+            Destroy(sourceToStop.gameObject);
+        }
+        
+        AudioSource newSource = PlaySource(newAudio);
+        newSource.time = time;
+    }
     
     private AudioSource PlaySource(string name, bool randomize = false)
     {
@@ -78,7 +93,7 @@ public class AudioManager : MonoBehaviour
         source.volume = randomize? Random.Range(data.volume - 0.55f, data.volume + 0.25f): data.volume;
         source.loop = data.loop;
         
-        if (source.loop)
+        if (source.loop || data.name.StartsWith("game"))
             activeAudios.Add(source);
         else
             Destroy(obj, clip.length);

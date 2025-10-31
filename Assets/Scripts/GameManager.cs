@@ -5,6 +5,7 @@ using System.Globalization;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     
     [HideInInspector]
     public bool gameReady = false;
+    bool gameOver = false;
     [HideInInspector]
     public UnityEvent OnGameReady;
     
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
         normal,
         scared,
-        eaten
+        recovering
     }
     
     [SerializeField, Header("Score UI")]
@@ -51,6 +53,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("Scared Timer UI")]
     private GameObject[] scaredTimerObjs;
     private TextMeshProUGUI[] scaredTimerTexts = new TextMeshProUGUI[2];
+    private bool ghostEaten = false;
     
     [SerializeField, Header("Lives UI")]
     private Transform[] lifeUIParents;
@@ -61,6 +64,7 @@ public class GameManager : MonoBehaviour
         set
         {
             _lives = value;
+            if (lives < 0) return;
             foreach (Transform parent in lifeUIParents)
             {
                 parent.GetChild(lives).gameObject.SetActive(false);
@@ -70,6 +74,11 @@ public class GameManager : MonoBehaviour
     
     [SerializeField, Header("Go Timer UI")]
     private TextMeshProUGUI goTimerText;
+
+    [SerializeField, Header("Game Over UI")]
+    private GameObject gameOverPanel;
+
+    private int pelletCount;
     
     private void Awake()
     {
@@ -86,12 +95,18 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(GoTimer());
-        
+    }
+
+    public void CountPellets(int num)
+    {
+        pelletCount += num;
+        if (pelletCount <= 0)
+            EndGame();
     }
 
     private void Update()
     {
-        if (!gameReady) return;
+        if (!gameReady || gameOver) return;
         
         UpdateTimer();
         if (state == GameState.scared)
@@ -103,28 +118,57 @@ public class GameManager : MonoBehaviour
     private void StartGame()
     {
         ActivateScaredMode(false);
+        OnGameReady.Invoke();
+    }
+
+    private void EndGame()
+    {
+        gameOver = true;
+        gameOverPanel.SetActive(true);
+        int highScore = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name+"HS", 0);
+        float bestTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name+"Time", 0);
+        if (score > highScore || (highScore == score && timer < bestTime))
+        {
+            PlayerPrefs.SetInt(SceneManager.GetActiveScene().name+"HS", score);
+            PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name+"Time", timer);
+        }
+        
+        PlayerPrefs.Save();
+        
+        Invoke("ReturnToStartScene", 3f);
+    }
+
+    void ReturnToStartScene()
+    {
+        ScenesManager.instance.LoadScene("StartScene");
     }
 
     public void AddScore(int scoreToAdd)
     {
         score += scoreToAdd;
     }
-
     
     private void UpdateTimer()
     {
         timer += Time.deltaTime;
-        TimeSpan timeSpan = TimeSpan.FromSeconds(timer);
-        string timeString =  string.Format("{0:00}:{1:00}:{2:00}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds/10);
+        
+        string timeString = GetTimeString();
         foreach (TextMeshProUGUI timerText in timerTexts)
         {
             timerText.text = timeString;
         }
     }
 
+    string GetTimeString()
+    {
+        TimeSpan timeSpan = TimeSpan.FromSeconds(timer);
+        string timeString =  string.Format("{0:00}:{1:00}:{2:00}", timeSpan.Minutes, timeSpan.Seconds, timeSpan.Milliseconds/10);
+        return timeString;
+    }
     
     public void ActivateScaredMode(bool active)
     {
+        ghostEaten = false;
         state = active? GameState.scared :  GameState.normal;
         scaredTimer = active? 10f : 0;
         foreach (var scareObj in scaredTimerObjs)
@@ -168,10 +212,19 @@ public class GameManager : MonoBehaviour
             case GhostsManager.GhostState.Normal:
                 // lose a life
                 lives--;
-                return false;   // play die anim, particles, sound
+                if (lives <= 0)
+                    EndGame();
+                
+                // ghosts should not move, reset ghosts to initial position
+                StartCoroutine(WaitForPlayerRespawn());
+                return false;   // play die anim, particles, sound, respawn player
             case GhostsManager.GhostState.Scared or GhostsManager.GhostState.Recovering:
                 // ghost die > animator dead
                 ghost.Die();
+                HitGhost();
+                AudioManager.instance.PlayAudioRandom("eatGhost");
+                AudioManager.instance.PlayAudioRandom("throw");
+                
                 AddScore(300);
                 return true;
         }
@@ -179,6 +232,20 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    IEnumerator WaitForPlayerRespawn()
+    {
+        gameReady = false;
+        yield return new WaitForSeconds(1f);    // wait for player to finish die anim, particles, sound, respawn
+        if (gameOver) yield break;
+        gameReady = true;
+    }
+
+    void HitGhost()
+    {
+        if (ghostEaten) return;
+        AudioManager.instance.ReplaceAudio("gameScared", "gameScaredEaten");
+        ghostEaten = true;
+    }
 
     IEnumerator GoTimer()
     {

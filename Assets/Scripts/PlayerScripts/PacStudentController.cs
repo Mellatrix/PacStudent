@@ -32,6 +32,10 @@ public class PacStudentController : MonoBehaviour
 
     [SerializeField]
     private Transform[] teleporters;
+    
+    Vector2Int startPosition;
+
+    public GameObject deathParticles;
 
     private void Awake()
     {
@@ -46,6 +50,7 @@ public class PacStudentController : MonoBehaviour
     {
         gridData = LevelGridManager.gridData;
         currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
+        startPosition = currentCoordinates;
         
         StartCoroutine(ApplyPlayerInput());
     }
@@ -154,7 +159,7 @@ public class PacStudentController : MonoBehaviour
         animator.SetBool("Exit", false);
         if (dir.normalized == Vector2.down)
         {
-            animator.SetTrigger("Down");
+            animator.SetInteger("Direction", 1);
             collisionController.OffsetCollider(Vector2.down);
             particleRenderer.sortingOrder = 0;
             return;
@@ -162,17 +167,17 @@ public class PacStudentController : MonoBehaviour
 
         if (dir.normalized == Vector2.up)
         {
-            animator.SetTrigger("Up");
+            animator.SetInteger("Direction", 0);
             collisionController.OffsetCollider(Vector2.up);
         }
         else if (dir.normalized == Vector2.left)
         {
-            animator.SetTrigger("Left");
+            animator.SetInteger("Direction", 2);
             collisionController.OffsetCollider(Vector2.left);
         }
         else if (dir.normalized == Vector2.right)
         {
-            animator.SetTrigger("Right");
+            animator.SetInteger("Direction", 3);
             collisionController.OffsetCollider(Vector2.right);
         }
 
@@ -207,7 +212,6 @@ public class PacStudentController : MonoBehaviour
     public void Teleport(Transform teleporter)
     {
         Vector2Int spawnPoint = teleporters[0] == teleporter ? new Vector2Int(14,27) : new Vector2Int(14,0);
-        particle.Stop();
 
         foreach (Transform tp in teleporters)
         {
@@ -217,13 +221,19 @@ public class PacStudentController : MonoBehaviour
         StopAllCoroutines();
         isLerping = false;
         
-        transform.position = gridData[spawnPoint.x, spawnPoint.y].position;
-        currentCoordinates = spawnPoint;
+        SetPlayerPositionOnGrid(spawnPoint);
 
         StartCoroutine(ApplyPlayerInput());
-        particle.Play();
         
-        Invoke("EnableTeleporter", 0.9f);
+        Invoke("EnableTeleporter", 0.7f);
+    }
+
+    void SetPlayerPositionOnGrid(Vector2Int newPosition)
+    {
+        particle.Stop();
+        transform.position = gridData[newPosition.x, newPosition.y].position;
+        currentCoordinates = newPosition;
+        particle.Play();
     }
 
     void EnableTeleporter()
@@ -236,6 +246,19 @@ public class PacStudentController : MonoBehaviour
 
     public void Die()
     {
+        StartCoroutine(DieRoutine());
+    }
+
+    IEnumerator DieRoutine()
+    {
         animator.SetTrigger("Die");
+        currentInput = PlayerInput.none;
+        lastInput = PlayerInput.none;
+        // play particles
+        Instantiate(deathParticles, transform.position, Quaternion.identity);   
+        yield return new WaitForSeconds(0.9f);
+        
+        SetPlayerPositionOnGrid(startPosition);
+        animator.SetBool("Exit", true);
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2134244134197571070}
   - component: {fileID: 2595092946085781226}
   - component: {fileID: 8345159219710678691}
+  - component: {fileID: 686073672005324499}
   m_Layer: 0
   m_Name: Tiles_5
   m_TagString: Pellet
@@ -136,3 +137,15 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.07
+--- !u!114 &686073672005324499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6406790231385072180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dbafdad8150ef047bd5152fcd9bfaab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

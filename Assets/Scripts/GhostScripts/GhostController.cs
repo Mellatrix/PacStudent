@@ -7,6 +7,7 @@ public class GhostController : MonoBehaviour
 {
     public Direction defaultDirection;
     Animator animator;
+    GhostsManager ghostManager;
     
     public enum Direction
     {
@@ -15,6 +16,8 @@ public class GhostController : MonoBehaviour
         left,
         right
     };
+    
+    public bool isDead = false;
 
     private Direction _currDir;
     Direction currentDirection
@@ -37,8 +40,29 @@ public class GhostController : MonoBehaviour
         currentDirection = defaultDirection;
     }
 
+    public void Move()
+    {
+        if (!GameManager.instance.gameReady) return;
+    }
+
+    public void SetGhostManager(GhostsManager man)
+    {
+        ghostManager = man;
+    }
+
     public void Die()
     {
-        animator.SetBool("Die", true);
+        isDead = true;
+        StartCoroutine(DieCoroutine());
+    }
+
+    IEnumerator DieCoroutine()
+    {
+        animator.SetLayerWeight(3, 1);
+        
+        yield return new WaitForSeconds(3f);
+        isDead = false;
+        
+        animator.SetLayerWeight(3, 0);
     }
 }

@@ -6,6 +6,8 @@ using UnityEngine;
 public class GhostsManager : MonoBehaviour
 {
     private Animator[] animators;
+    private GhostController[]  ghosts;
+    //public bool canMove = false;
     
     public enum GhostState
     {
@@ -29,6 +31,11 @@ public class GhostsManager : MonoBehaviour
     private void Awake()
     {
         animators = GetComponentsInChildren<Animator>();
+        ghosts = GetComponentsInChildren<GhostController>();
+        foreach (GhostController ghost in ghosts)
+        {
+            ghost.SetGhostManager(this);
+        }
     }
 
     void UpdateAnimators()

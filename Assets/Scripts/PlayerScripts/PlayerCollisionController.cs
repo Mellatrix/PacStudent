@@ -19,8 +19,13 @@ public class PlayerCollisionController : MonoBehaviour
         collider.offset = offset * 0.1f;
     }
 
+    private void Update()
+    {
+    }
+
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (!GameManager.instance.gameReady) return;
         if (collision.CompareTag("Tile"))
         {
             CollideWithWall(collision.ClosestPoint(transform.position));
@@ -34,6 +39,7 @@ public class PlayerCollisionController : MonoBehaviour
             AudioManager.instance.PlayAudioRandom("eat");
             Destroy(collision.gameObject);
             GameManager.instance.AddScore(10);
+            GameManager.instance.CountPellets(-1);
         }
         else if (collision.CompareTag("Cherry"))
         {
@@ -51,6 +57,7 @@ public class PlayerCollisionController : MonoBehaviour
         else if (collision.CompareTag("Ghost"))
         {
             GhostController ghost = collision.GetComponent<GhostController>();
+            if (ghost.isDead) return;
             if (!GameManager.instance.CanHitGhost(ghost))
             {
                 playerController.Die();
