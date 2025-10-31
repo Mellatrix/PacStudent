@@ -179,8 +179,8 @@ public class LevelGridManager : MonoBehaviour
         //center line
         for (int c = 0; c < quadCols; c++)
         {
-            Debug.Log(quadRows + " " + c);
-            Debug.Log(fullGrid.GetLength(00) + " " + fullGrid.GetLength(01));
+            //Debug.Log(quadRows + " " + c);
+            //Debug.Log(fullGrid.GetLength(00) + " " + fullGrid.GetLength(01));
             fullGrid[quadRows, c] = new GridData
             {
                 walkable = _centerLine[0, c].walkable,

@@ -36,9 +36,9 @@ public class ScenesManager : MonoBehaviour
             case 0:
                 AudioManager.instance.PlayAudio("startBGM");
                 break;
-            case >0:
+            /*case >0:
                 AudioManager.instance.PlayAudio("gameBGM");
-                break;
+                break;*/
             default:
                 break;
         }
@@ -48,7 +48,7 @@ public class ScenesManager : MonoBehaviour
     {
         SetSceneButtons();
         
-        PlayBGM(SceneManager.GetActiveScene());
+        // PlayBGM(SceneManager.GetActiveScene());
     }
 
     private void SetSceneButtons()

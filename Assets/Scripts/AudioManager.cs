@@ -31,12 +31,50 @@ public class AudioManager : MonoBehaviour
 
     public void PlayAudio(string name)
     {
-        activeAudios.Add(PlaySource(name));
+        PlaySource(name);
     }
 
     public void PlayAudioRandom(string name)
     {
-        activeAudios.Add(PlaySource(name, true));
+        PlaySource(name, true);
+    }
+
+    public void PlayAudioIncreasing(string name, float duration)
+    {
+        StartCoroutine(IncreaseVolumeOverTime(PlaySource(name), duration));
+    }
+
+    IEnumerator IncreaseVolumeOverTime(AudioSource source, float duration)
+    {
+        float targetVolume = source.volume;
+        source.volume = 0;
+        float t = 0;
+
+        while (t < duration)
+        {
+            if (source == null) yield break;
+            t += Time.deltaTime;
+            source.volume = Mathf.Lerp(0, targetVolume, t/duration);
+            yield return null;
+        }
+        
+        if (source == null) yield break;
+        source.volume = targetVolume;
+    }
+
+    public void ReplaceAudio(string currAudio, string newAudio)
+    {
+        AudioSource sourceToStop = GetSource(currAudio);
+        float time = 0;
+        if (sourceToStop != null)
+        {
+            time = sourceToStop.time;
+            activeAudios.Remove(sourceToStop);
+            Destroy(sourceToStop.gameObject);
+        }
+        
+        AudioSource newSource = PlaySource(newAudio);
+        newSource.time = time;
     }
     
     private AudioSource PlaySource(string name, bool randomize = false)
@@ -54,27 +92,36 @@ public class AudioManager : MonoBehaviour
         source.clip = clip;
         source.volume = randomize? Random.Range(data.volume - 0.55f, data.volume + 0.25f): data.volume;
         source.loop = data.loop;
-
+        
+        if (source.loop || data.name.StartsWith("game"))
+            activeAudios.Add(source);
+        else
+            Destroy(obj, clip.length);
+        
         source.Play();
         
-        if (!data.loop)
-            Destroy(obj, clip.length);
-
         return source;
     }
 
-    private AudioSource GetSource(string name)
+    public AudioSource GetSource(string name)
     {
         foreach (AudioSource source in activeAudios)
         {
-            if (source.clip.name.Contains(name))
+            if (source == null) return null;
+            if (source.name.StartsWith(name, StringComparison.OrdinalIgnoreCase))
                 return source;
         }
         
         return null;
     }
-    private void Start()
+
+    public void StopAudio(string name)
     {
-        
+        AudioSource source = GetSource(name);
+        if (source == null) 
+            return;
+        activeAudios.Remove(source);
+        Destroy(source.gameObject);
     }
+    
 }

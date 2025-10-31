@@ -9,6 +9,11 @@ TagManager:
   - Exit
   - Center
   - Cherry
+  - Pellet
+  - PowerPellet
+  - Tile
+  - Teleporter
+  - Ghost
   layers:
   - Default
   - TransparentFX
@@ -54,4 +59,7 @@ TagManager:
     locked: 0
   - name: Cherry
     uniqueID: 1381548979
+    locked: 0
+  - name: UI
+    uniqueID: 1676025055
     locked: 0

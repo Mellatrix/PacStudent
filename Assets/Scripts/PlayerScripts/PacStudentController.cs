@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// using this mainly for movement and animation
+/// </summary>
 public class PacStudentController : MonoBehaviour
 {
     public float speed;
@@ -21,37 +24,61 @@ public class PacStudentController : MonoBehaviour
     PlayerInput currentInput = PlayerInput.none; // curr move dir
 
     private bool isLerping;
-
     private Animator animator;
     
     ParticleSystemRenderer particleRenderer;
+    ParticleSystem particle;
+    PlayerCollisionController collisionController;
+
+    [SerializeField]
+    private Transform[] teleporters;
+    
+    Vector2Int startPosition;
+
+    public GameObject deathParticles;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         particleRenderer = GetComponentInChildren<ParticleSystemRenderer>();
+        particle = GetComponentInChildren<ParticleSystem>();
+        collisionController = GetComponent<PlayerCollisionController>();
+        collisionController.SetPlayerController(this);
     }
 
     void Start()
     {
         gridData = LevelGridManager.gridData;
         currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
-
+        startPosition = currentCoordinates;
+        
         StartCoroutine(ApplyPlayerInput());
     }
     
     IEnumerator ApplyPlayerInput()
     {
+        currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
+        
         while (true)
         {
-            if (!isLerping)
+            if (GameManager.instance.gameReady)
             {
-                Vector2Int newCoordinates;
-                if (IsWalkable(currentCoordinates, out newCoordinates))
+                if (!isLerping)
                 {
-                    ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
-                    yield return LerpPlayer(newCoordinates);
+                    Vector2Int newCoordinates;
+                    if (IsWalkable(currentCoordinates, out newCoordinates))
+                    {
+                        ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
+                        yield return LerpPlayer(newCoordinates);
+                    }
+                    else
+                    {
+                        animator.SetBool("Exit", true);
+                        collisionController.OffsetCollider(Vector2.zero);
+                    }
                 }
+                
+                yield return null;
             }
             
             yield return null;
@@ -95,6 +122,7 @@ public class PacStudentController : MonoBehaviour
         }
         
         //Debug.Log(input.ToString() + " " + gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable));
+        //Debug.Log(newCoordinates);
         return gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable);
     }
 
@@ -128,19 +156,30 @@ public class PacStudentController : MonoBehaviour
 
     void ApplyMoveAnimation(Vector2 dir)
     {
+        animator.SetBool("Exit", false);
         if (dir.normalized == Vector2.down)
         {
-            animator.SetTrigger("Down");
+            animator.SetInteger("Direction", 1);
+            collisionController.OffsetCollider(Vector2.down);
             particleRenderer.sortingOrder = 0;
             return;
         }
-        
+
         if (dir.normalized == Vector2.up)
-            animator.SetTrigger("Up");
+        {
+            animator.SetInteger("Direction", 0);
+            collisionController.OffsetCollider(Vector2.up);
+        }
         else if (dir.normalized == Vector2.left)
-            animator.SetTrigger("Left");
+        {
+            animator.SetInteger("Direction", 2);
+            collisionController.OffsetCollider(Vector2.left);
+        }
         else if (dir.normalized == Vector2.right)
-            animator.SetTrigger("Right");
+        {
+            animator.SetInteger("Direction", 3);
+            collisionController.OffsetCollider(Vector2.right);
+        }
 
         particleRenderer.sortingOrder = 12;
     }
@@ -168,5 +207,58 @@ public class PacStudentController : MonoBehaviour
         {
             lastInput = PlayerInput.d;
         }
+    }
+
+    public void Teleport(Transform teleporter)
+    {
+        Vector2Int spawnPoint = teleporters[0] == teleporter ? new Vector2Int(14,27) : new Vector2Int(14,0);
+
+        foreach (Transform tp in teleporters)
+        {
+            tp.gameObject.SetActive(false);
+        }
+        
+        StopAllCoroutines();
+        isLerping = false;
+        
+        SetPlayerPositionOnGrid(spawnPoint);
+
+        StartCoroutine(ApplyPlayerInput());
+        
+        Invoke("EnableTeleporter", 0.7f);
+    }
+
+    void SetPlayerPositionOnGrid(Vector2Int newPosition)
+    {
+        particle.Stop();
+        transform.position = gridData[newPosition.x, newPosition.y].position;
+        currentCoordinates = newPosition;
+        particle.Play();
+    }
+
+    void EnableTeleporter()
+    {
+        foreach (Transform tp in teleporters)
+        {
+            tp.gameObject.SetActive(true);
+        }
+    }
+
+    public void Die()
+    {
+        StartCoroutine(DieRoutine());
+    }
+
+    IEnumerator DieRoutine()
+    {
+        animator.SetTrigger("Die");
+        currentInput = PlayerInput.none;
+        lastInput = PlayerInput.none;
+        // play particles
+        Instantiate(deathParticles, transform.position, Quaternion.identity);   
+        yield return new WaitForSeconds(0.9f);
+        
+        SetPlayerPositionOnGrid(startPosition);
+        animator.SetBool("Exit", true);
     }
 }
