@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fb8ba45-c8ee-474d-86f2-63b92504ff9a" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.PacAss3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PacAss3/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/Ghost-Rat/PurpleRatAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/Ghost-Rat/PurpleRatAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PacMan-Goblin/GobDie.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PacMan-Goblin/GobDie.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Animations/PacMan-Goblin/GoblinAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PacMan-Goblin/GoblinAnimator.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/EmojiFont SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/EmojiFont SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/TitleFont.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/TitleFont.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/alagard SDF 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Fonts/alagard SDF 1.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/AudioManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/AudioManager.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Tiles/Tiles_5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Tiles/Tiles_5.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/StartScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/AudioManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GhostScripts/GhostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GhostScripts/GhostController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GhostScripts/GhostsManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GhostScripts/GhostsManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PacStudentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PacStudentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerCollisionController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerScripts/PlayerCollisionController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/ScenesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/ScenesManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="4fb8ba45-c8ee-474d-86f2-63b92504ff9a" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,7 +105,7 @@
       <workItem from="1761666358900" duration="19013000" />
       <workItem from="1761694479062" duration="1675000" />
       <workItem from="1761725978754" duration="10875000" />
-      <workItem from="1761873266329" duration="14443000" />
+      <workItem from="1761873266329" duration="14755000" />
     </task>
     <servers />
   </component>

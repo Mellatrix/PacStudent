@@ -33,6 +33,7 @@ public class CherryController : MonoBehaviour
     
     IEnumerator SpawnTimer()
     {
+        if (isSpawning) yield break;
         isSpawning = true;
         yield return new WaitForSeconds(5f);
         cherry = Instantiate(prefab, RandomSpawnPos(), Quaternion.identity, transform);
@@ -47,7 +48,12 @@ public class CherryController : MonoBehaviour
         while (t < duration)
         {
             t += Time.deltaTime;
-            if (cherry == null) yield break;
+            if (cherry == null)
+            {
+                isSpawning = false;
+                SpawnCherry();
+                yield break;
+            }
             cherry.transform.position = Vector2.Lerp(startPos, DestroyAtPos(startPos), t/duration);
             yield return null;
         }

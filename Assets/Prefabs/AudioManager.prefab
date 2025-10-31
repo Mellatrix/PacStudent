@@ -94,7 +94,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 140ef85302e5c6442a5edc612d8907db, type: 3}
     loop: 0
-    volume: 0.7
+    volume: 1
   - name: evil
     clips:
     - {fileID: 8300000, guid: 6276d1d06a542ef4e98a83acea65cb19, type: 3}

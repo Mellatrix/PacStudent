@@ -40219,7 +40219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Ghosts: {fileID: 939348313}
-  Cherry: {fileID: 0}
+  Cherry: {fileID: 447739599}
   gameReady: 0
   OnGameReady:
     m_PersistentCalls:
