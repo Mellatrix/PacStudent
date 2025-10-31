@@ -55,7 +55,8 @@ public class GhostController : MonoBehaviour
         }
     }
 
-    private Direction newDir;
+
+    private bool touchingOuterWall = false;
 
     void Awake()
     {
@@ -143,10 +144,10 @@ public class GhostController : MonoBehaviour
     
     Vector2Int ChooseNextPos()
     {
-        List<Vector2Int> possibleDirections = new List<Vector2Int>(GetPriorityCoords(GetPossibleDirections()));
+        List<Vector2Int> possibleDirections = new List<Vector2Int>(PrioritiseFrontCoords(GetPossibleDirections()));
         
-        if (behaviour == Behaviour.Ghost4)
-            Debug.Log(possibleDirections.Count);
+        /*if (behaviour == Behaviour.Ghost4)
+            Debug.Log(possibleDirections.Count);*/
         if (possibleDirections.Count == 1)
             return possibleDirections[0];
 
@@ -180,19 +181,35 @@ public class GhostController : MonoBehaviour
                 int randIndex = Random.Range(0, possibleDirections.Count - 1);
                 return possibleDirections[randIndex];
             case Behaviour.Ghost4: // hug outer walls
-                Vector2Int furthestFromCenter = Vector2Int.zero;
-                float furthest = 0;
-                for (int i = 0; i < possibleDirections.Count-1; i++)
+                if (IsTouchingOuterWall(GetPossibleDirections().ToArray()) || touchingOuterWall)
                 {
-                    if (GetDistance(possibleDirections[i], center) > furthest)
-                    {
-                        furthestFromCenter = possibleDirections[i];
-                        furthest = GetDistance(possibleDirections[i], center);
-                    }
+                    touchingOuterWall = true;
+                    //Debug.Log("Touch");
+                    possibleDirections = new List<Vector2Int>(PrioritiseRightWall(GetPossibleDirections()));
                 }
-                return furthestFromCenter;
+                return possibleDirections[0];
         }
         return Vector2Int.zero;
+    }
+
+    bool IsTouchingOuterWall(Direction[] possibleDirections)
+    {
+        List<Direction> impossibleDirs = new List<Direction>();
+        for (int i = 0; i < 4; i++)
+        {
+            if (possibleDirections.Contains((Direction)i)) continue;
+            //Debug.Log((Direction)i);
+            impossibleDirs.Add((Direction)i);
+        }
+        
+        foreach (Direction dir in impossibleDirs)
+        {
+            Vector2Int coords = GetCoordinatesFromDir(dir);
+            //Debug.Log(gridData[coords.x, coords.y].wallType);
+            if (gridData[coords.x, coords.y].wallType == GridData.WallType.outer)
+                return true; 
+        }
+        return false;
     }
 
     float GetDistance(Vector2Int newCoordinates, Vector2 position = new Vector2())
@@ -205,8 +222,56 @@ public class GhostController : MonoBehaviour
             gridData[player.GetCoordinates().x, player.GetCoordinates().y].position, 
             gridData[newCoordinates.x, newCoordinates.y].position);
     }
+    
+    /*List<Vector2Int> PrioritiseSameDirection(List<Direction> allDirs)
+    {
+        List<Direction> priorityDirs = new List<Direction>(allDirs);
+        Direction opposite = GetOppositeDirection(currentDirection);
+        priorityDirs = priorityDirs.OrderBy(d => d == opposite ? 1:0).ToList();
+        priorityDirs = priorityDirs.OrderBy(d => d == currentDirection ? 0:1).ToList();
+        
+        List<Vector2Int> newCoords = new List<Vector2Int>();
+        for (int i = 0; i < priorityDirs.Count; i++)
+        {
+            newCoords.Add(GetCoordinatesFromDir(priorityDirs[i]));
+        }
+        return newCoords;
+    }*/
 
-    List<Vector2Int> GetPriorityCoords(List<Direction> allDirs)
+    Direction LocalRightDir()
+    {
+        switch (currentDirection)
+        {
+            case Direction.up:
+                return Direction.right;
+            case Direction.down:
+                return Direction.left;
+            case Direction.left:
+                return Direction.up;
+            case Direction.right:
+                return Direction.down;
+        }
+        
+        return Direction.up;
+    }
+    
+    List<Vector2Int> PrioritiseRightWall(List<Direction> allDirs)
+    {
+        List<Direction> priorityDirs = new List<Direction>(allDirs);
+        Direction opposite = GetOppositeDirection(currentDirection);
+        priorityDirs = priorityDirs.OrderBy(d => d == opposite ? 1:0).ToList();
+        priorityDirs = priorityDirs.OrderBy(d => d == currentDirection ? 0:1).ToList();
+        priorityDirs = priorityDirs.OrderBy(d => d == LocalRightDir() ? 0:1).ToList();
+        
+        List<Vector2Int> newCoords = new List<Vector2Int>();
+        for (int i = 0; i < priorityDirs.Count; i++)
+        {
+            newCoords.Add(GetCoordinatesFromDir(priorityDirs[i]));
+        }
+        return newCoords;
+    }
+
+    List<Vector2Int> PrioritiseFrontCoords(List<Direction> allDirs)
     {
         List<Direction> priorityDirs = new List<Direction>(allDirs);
         Direction opposite = GetOppositeDirection(currentDirection);
@@ -219,6 +284,8 @@ public class GhostController : MonoBehaviour
         }
         return newCoords;
     }
+    
+    
 
     List<Direction> GetPossibleDirections()
     {
@@ -240,7 +307,31 @@ public class GhostController : MonoBehaviour
         newCoordinates = GetCoordinatesFromDir(dir);
 
         // if prev coordinates was inside box, include ghost walls
-        return gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable);
+        if (IsCoordinatesInsideBounds(newCoordinates))
+            return gridData[newCoordinates.x, newCoordinates.y].walkable.Equals(GridData.Walkable.walkable);
+        return false;
+    }
+
+    bool IsCoordinatesInsideBounds(Vector2Int coords)
+    {
+        return (coords.x < gridData.GetLength(0) && coords.y < gridData.GetLength(1))
+            &&  (coords.x >= 0 && coords.y >= 0);
+    }
+
+    Direction GetDirFromCoordinates(Vector2Int coordinates)
+    {
+        Vector2Int diff = coordinates - currentCoordinates;
+
+        if (diff == Vector2Int.up)
+            return Direction.up;
+        if (diff == Vector2Int.down)
+            return Direction.down;
+        if (diff == Vector2Int.left)
+            return Direction.left;
+        if (diff == Vector2Int.right)
+            return Direction.right;
+        
+        return Direction.up;
     }
 
     Vector2Int GetCoordinatesFromDir(Direction dir)
