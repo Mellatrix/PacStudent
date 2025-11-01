@@ -3,7 +3,19 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - L1
+  - L2
+  - Exit
+  - Center
+  - Cherry
+  - Pellet
+  - PowerPellet
+  - Tile
+  - Teleporter
+  - Ghost
+  - GhostBox
+  - GhostWall
   layers:
   - Default
   - TransparentFX
@@ -11,8 +23,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Borders
+  - MiniGameTracers
   - 
   - 
   - 
@@ -43,4 +55,16 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2009769017
+    locked: 0
+  - name: UI
+    uniqueID: 1676025055
+    locked: 0
+  - name: Cherry
+    uniqueID: 1381548979
+    locked: 0
+  - name: MiniGame
+    uniqueID: 1477017381
     locked: 0

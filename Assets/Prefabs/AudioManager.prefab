@@ -1,0 +1,147 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6977722676364109648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2766732901037217566}
+  - component: {fileID: 7232842801481426831}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2766732901037217566
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977722676364109648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 185.90375, y: 58.506813, z: -0.8481244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7232842801481426831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6977722676364109648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fea6d85762f9ced449afb5c2b5d89a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioDatas:
+  - name: btn
+    clips:
+    - {fileID: 8300000, guid: 8d2f6ff1afdc3254589ee2f10e7b14ac, type: 3}
+    loop: 0
+    volume: 1
+  - name: gameBGM
+    clips:
+    - {fileID: 8300000, guid: 63d31f239f0ba1e44a14f507310e2c3b, type: 3}
+    loop: 1
+    volume: 0.35
+  - name: startBGM
+    clips:
+    - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
+    loop: 1
+    volume: 0.3
+  - name: eat
+    clips:
+    - {fileID: 8300000, guid: 7dfaf48f566f72d4c89e8c0a1e9be3d0, type: 3}
+    - {fileID: 8300000, guid: 98f4370ffd69b68439356e1a87d7a87d, type: 3}
+    loop: 0
+    volume: 0.801
+  - name: walk
+    clips:
+    - {fileID: 8300000, guid: c3229c3fdda09ce4396d84e537397b85, type: 3}
+    - {fileID: 8300000, guid: 8608f613facc5044abaa175f46c7f19f, type: 3}
+    - {fileID: 8300000, guid: 402b5b37c5c91b54f87aa9c8b808a038, type: 3}
+    - {fileID: 8300000, guid: fafc2e78bc7c4a24595d6cd3174d66cf, type: 3}
+    - {fileID: 8300000, guid: 8bd2350eb17a1fc43b4dce7c77833db7, type: 3}
+    - {fileID: 8300000, guid: 3f88e316298a8594097893e08dc1ded7, type: 3}
+    loop: 0
+    volume: 0.6
+  - name: gameScared
+    clips:
+    - {fileID: 8300000, guid: 821b39f44f029054494044326309b140, type: 3}
+    loop: 0
+    volume: 0.28
+  - name: hit
+    clips:
+    - {fileID: 8300000, guid: dacae67af8b29e942a384f13730f8106, type: 3}
+    - {fileID: 8300000, guid: da8cadd888683fe4197b5d597aa726e3, type: 3}
+    - {fileID: 8300000, guid: b5129620bd66e884c9df0d623130dc0d, type: 3}
+    - {fileID: 8300000, guid: 577b2a614f39f354db4a4af454ae56a7, type: 3}
+    - {fileID: 8300000, guid: ca8ac46398c64b8429f1cc6516f5ec5f, type: 3}
+    loop: 0
+    volume: 1
+  - name: burp
+    clips:
+    - {fileID: 8300000, guid: 140ef85302e5c6442a5edc612d8907db, type: 3}
+    loop: 0
+    volume: 1
+  - name: evil
+    clips:
+    - {fileID: 8300000, guid: 6276d1d06a542ef4e98a83acea65cb19, type: 3}
+    loop: 0
+    volume: 0.85
+  - name: die
+    clips:
+    - {fileID: 8300000, guid: 94c341d34eaee2345a15d404b77fba00, type: 3}
+    - {fileID: 8300000, guid: 44e285a19d946b242a7bcd4cbd08776e, type: 3}
+    loop: 0
+    volume: 1
+  - name: intro
+    clips:
+    - {fileID: 8300000, guid: 2cbee184194aeb24aa65f1297fe58172, type: 3}
+    loop: 0
+    volume: 0.35
+  - name: gameScaredEaten
+    clips:
+    - {fileID: 8300000, guid: fb56bc024dae593488e4fc8241da5a2d, type: 3}
+    loop: 0
+    volume: 0.3
+  - name: eatGhost
+    clips:
+    - {fileID: 8300000, guid: a6585a479fa62d04897510d4ea05493c, type: 3}
+    - {fileID: 8300000, guid: 79a102605501a0342a1aed1850520ce3, type: 3}
+    - {fileID: 8300000, guid: 873231fb76dc6f34d86aff23de1b96b5, type: 3}
+    loop: 0
+    volume: 0.7
+  - name: throw
+    clips:
+    - {fileID: 8300000, guid: 4bad85a32bcd4f64890bfd6f310076ee, type: 3}
+    loop: 0
+    volume: 1
+  - name: win
+    clips:
+    - {fileID: 8300000, guid: 965c677858de88e4f945f39cebe6dab0, type: 3}
+    loop: 1
+    volume: 0.35
+  - name: loss
+    clips:
+    - {fileID: 8300000, guid: e345816757f3777408156a343f01ed9d, type: 3}
+    loop: 1
+    volume: 0.35
+  - name: losecry
+    clips:
+    - {fileID: 8300000, guid: 124e8ba5184098f46a43fcdee41ea4d9, type: 3}
+    - {fileID: 8300000, guid: 61a8bc96c96c33c4ba682b25dfe3ecad, type: 3}
+    - {fileID: 8300000, guid: 9b16ec1f02471e143abf8d8b0d8e3210, type: 3}
+    loop: 0
+    volume: 0.85

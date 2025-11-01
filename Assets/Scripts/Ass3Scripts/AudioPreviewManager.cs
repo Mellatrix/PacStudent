@@ -79,4 +79,6 @@ public class AudioClipData
     public string name;
     public AudioClip[] clips;
     public bool loop;
+    [Range(0f,1f)]
+    public float volume = 1f;
 }
