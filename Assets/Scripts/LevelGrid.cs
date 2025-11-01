@@ -26,7 +26,7 @@ public class LevelGridManager : MonoBehaviour
         {
             for (int c = 0; c < cols; c++)
             {
-                if (Vector2.Distance(gridData[r, c].position, point) < 0.02f)
+                if (Vector2.Distance(gridData[r, c].position, point) < 0.1f)
                 {
                     return new Vector2Int(r, c);
                 }
@@ -72,6 +72,15 @@ public class LevelGridManager : MonoBehaviour
                         case 8:
                             _currGD.walkable = GridData.Walkable.ghostWall;
                             break;
+                        
+                        case 1 or 2:
+                            _currGD.wallType = GridData.WallType.outer;
+                           //Debug.Log(tileType + " " + _currGD.wallType);
+                            goto default;
+                            
+                        case 3 or 4:
+                            _currGD.wallType = GridData.WallType.inner;
+                            goto default;
 
                         default:
                             _currGD.walkable = GridData.Walkable.unwalkable;
@@ -164,14 +173,16 @@ public class LevelGridManager : MonoBehaviour
                 fullGrid[r, c] = new GridData
                 {
                     walkable = _quadrantData[r, c].walkable,
-                    position = _quadrantData[r, c].position
+                    position = _quadrantData[r, c].position,
+                    wallType = _quadrantData[r, c].wallType
                 };
 
                 int mirroredCol = cols - 1 - c;
                 fullGrid[r, mirroredCol] = new GridData
                 {
                     walkable = _quadrantData[r, c].walkable,
-                    position = new Vector2(-_quadrantData[r, c].position.x, _quadrantData[r, c].position.y)
+                    position = new Vector2(-_quadrantData[r, c].position.x, _quadrantData[r, c].position.y),
+                    wallType = _quadrantData[r, c].wallType
                 };
             }
         }
@@ -184,13 +195,15 @@ public class LevelGridManager : MonoBehaviour
             fullGrid[quadRows, c] = new GridData
             {
                 walkable = _centerLine[0, c].walkable,
-                position =_centerLine[0, c].position
+                position =_centerLine[0, c].position,
+                wallType = _centerLine[0, c].wallType
             };
             
             fullGrid[quadRows, cols - 1 - c] = new GridData
             {
                 walkable = _centerLine[0, c].walkable,
-                position = new Vector2(-_centerLine[0, c].position.x, _centerLine[0, c].position.y)
+                position = new Vector2(-_centerLine[0, c].position.x, _centerLine[0, c].position.y),
+                wallType = _centerLine[0, c].wallType
             };
         }
 
@@ -203,7 +216,8 @@ public class LevelGridManager : MonoBehaviour
                 fullGrid[mirroredRow, c] = new GridData
                 {
                     walkable = fullGrid[r, c].walkable,
-                    position = new Vector2(fullGrid[r, c].position.x, -fullGrid[r, c].position.y + 0.08f)
+                    position = new Vector2(fullGrid[r, c].position.x, -fullGrid[r, c].position.y + 0.08f),
+                    wallType = fullGrid[r, c].wallType
                 };
             }
         }
@@ -264,4 +278,12 @@ public class GridData
         ghostWall
     }
     public Walkable walkable;
+
+    public enum WallType
+    {
+        none,
+        inner,
+        outer,
+    }
+    public WallType wallType;
 }

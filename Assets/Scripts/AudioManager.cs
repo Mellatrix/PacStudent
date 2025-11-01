@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class AudioManager : MonoBehaviour
@@ -10,15 +11,32 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (instance != null)
+        if (instance == null && instance != this)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
             Destroy(gameObject);
-        instance = this;
-        DontDestroyOnLoad(gameObject);
+        
     }
     
     [SerializeField] private AudioClipData[] audioDatas;
     List<AudioSource> activeAudios = new List<AudioSource>();
 
+    void Start()
+    {
+        ScenesManager.instance.BeforeSceneLoaded += DestroyLevelMusic;
+    }
+
+    public void DestroyLevelMusic()
+    {
+        for (int i = activeAudios.Count - 1; i >= 0; i--)
+        {
+            StopAudio(activeAudios[i].name);
+        }
+    }
+    
     private AudioClipData GetClipData(string name)
     {
         foreach (AudioClipData data in audioDatas)
@@ -87,13 +105,14 @@ public class AudioManager : MonoBehaviour
 
         GameObject obj = new GameObject(name + " clip");
         AudioSource source = obj.AddComponent<AudioSource>();
+        DontDestroyOnLoad(obj);
         
         source.pitch = randomize? Random.Range(0.8f, 1.2f) : 1;
         source.clip = clip;
         source.volume = randomize? Random.Range(data.volume - 0.55f, data.volume + 0.25f): data.volume;
         source.loop = data.loop;
         
-        if (source.loop || data.name.StartsWith("game"))
+        if (source.loop || data.name.StartsWith("game") || data.name.EndsWith("BGM"))
             activeAudios.Add(source);
         else
             Destroy(obj, clip.length);

@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4fb8ba45-c8ee-474d-86f2-63b92504ff9a" name="Changes" comment="" />
+    <list default="true" id="4fb8ba45-c8ee-474d-86f2-63b92504ff9a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.PacAss3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.PacAss3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Animations/PacMan-Goblin/GoblinAnimator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Animations/PacMan-Goblin/GoblinAnimator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rat1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rat1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rat2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rat2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rat3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rat3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rat4.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rat4.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GhostScripts/GhostController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GhostScripts/GhostController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/LevelGrid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/LevelGrid.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +42,7 @@
     &quot;Attach to Unity Editor.Attach to Unity Editor.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;collisions-UI-highscores&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ghostmovemement-ai&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -105,7 +115,8 @@
       <workItem from="1761666358900" duration="19013000" />
       <workItem from="1761694479062" duration="1675000" />
       <workItem from="1761725978754" duration="10875000" />
-      <workItem from="1761873266329" duration="15064000" />
+      <workItem from="1761873266329" duration="31371000" />
+      <workItem from="1761913206007" duration="592000" />
     </task>
     <servers />
   </component>

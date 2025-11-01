@@ -59,7 +59,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: befaadc63cbfa7f4a8c7c3a960b25d83, type: 3}
     loop: 1
-    volume: 0.35
+    volume: 0.3
   - name: eat
     clips:
     - {fileID: 8300000, guid: 7dfaf48f566f72d4c89e8c0a1e9be3d0, type: 3}
@@ -80,7 +80,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 821b39f44f029054494044326309b140, type: 3}
     loop: 0
-    volume: 0.35
+    volume: 0.28
   - name: hit
     clips:
     - {fileID: 8300000, guid: dacae67af8b29e942a384f13730f8106, type: 3}
@@ -99,7 +99,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: 6276d1d06a542ef4e98a83acea65cb19, type: 3}
     loop: 0
-    volume: 0.7
+    volume: 0.85
   - name: die
     clips:
     - {fileID: 8300000, guid: 94c341d34eaee2345a15d404b77fba00, type: 3}
@@ -115,7 +115,7 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: fb56bc024dae593488e4fc8241da5a2d, type: 3}
     loop: 0
-    volume: 0.35
+    volume: 0.3
   - name: eatGhost
     clips:
     - {fileID: 8300000, guid: a6585a479fa62d04897510d4ea05493c, type: 3}
@@ -128,3 +128,20 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 4bad85a32bcd4f64890bfd6f310076ee, type: 3}
     loop: 0
     volume: 1
+  - name: win
+    clips:
+    - {fileID: 8300000, guid: 965c677858de88e4f945f39cebe6dab0, type: 3}
+    loop: 1
+    volume: 0.35
+  - name: loss
+    clips:
+    - {fileID: 8300000, guid: e345816757f3777408156a343f01ed9d, type: 3}
+    loop: 1
+    volume: 0.35
+  - name: losecry
+    clips:
+    - {fileID: 8300000, guid: 124e8ba5184098f46a43fcdee41ea4d9, type: 3}
+    - {fileID: 8300000, guid: 61a8bc96c96c33c4ba682b25dfe3ecad, type: 3}
+    - {fileID: 8300000, guid: 9b16ec1f02471e143abf8d8b0d8e3210, type: 3}
+    loop: 0
+    volume: 0.85

@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [Header("In-Scene References")]
     public GhostsManager Ghosts;
     public CherryController Cherry;
+    public PacStudentController Player;
     
     [HideInInspector]
     public bool gameReady = false;
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Header("Scared Timer UI")]
     private GameObject[] scaredTimerObjs;
     private TextMeshProUGUI[] scaredTimerTexts = new TextMeshProUGUI[2];
-    private bool ghostEaten = false;
+    //private bool ghostEaten = false;
     
     [SerializeField, Header("Lives UI")]
     private Transform[] lifeUIParents;
@@ -101,7 +102,7 @@ public class GameManager : MonoBehaviour
     {
         pelletCount += num;
         if (pelletCount <= 0)
-            EndGame();
+            EndGame(true);
     }
 
     private void Update()
@@ -121,10 +122,14 @@ public class GameManager : MonoBehaviour
         OnGameReady.Invoke();
     }
 
-    private void EndGame()
+    private void EndGame(bool win)
     {
         gameOver = true;
         gameOverPanel.SetActive(true);
+        AudioManager.instance.DestroyLevelMusic();
+        AudioManager.instance.PlayAudio(win? "win" : "loss");
+        if (!win)
+            AudioManager.instance.PlayAudioRandom("losecry");
         int highScore = PlayerPrefs.GetInt(SceneManager.GetActiveScene().name+"HS", 0);
         float bestTime = PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name+"Time", 0);
         if (score > highScore || (highScore == score && timer < bestTime))
@@ -168,7 +173,6 @@ public class GameManager : MonoBehaviour
     
     public void ActivateScaredMode(bool active)
     {
-        ghostEaten = false;
         state = active? GameState.scared :  GameState.normal;
         scaredTimer = active? 10f : 0;
         foreach (var scareObj in scaredTimerObjs)
@@ -213,7 +217,7 @@ public class GameManager : MonoBehaviour
                 // lose a life
                 lives--;
                 if (lives <= 0)
-                    EndGame();
+                    EndGame(false);
                 
                 // ghosts should not move, reset ghosts to initial position
                 StartCoroutine(WaitForPlayerRespawn());
@@ -221,7 +225,6 @@ public class GameManager : MonoBehaviour
             case GhostsManager.GhostState.Scared or GhostsManager.GhostState.Recovering:
                 // ghost die > animator dead
                 ghost.Die();
-                HitGhost();
                 AudioManager.instance.PlayAudioRandom("eatGhost");
                 AudioManager.instance.PlayAudioRandom("throw");
                 
@@ -237,14 +240,9 @@ public class GameManager : MonoBehaviour
         gameReady = false;
         yield return new WaitForSeconds(1f);    // wait for player to finish die anim, particles, sound, respawn
         if (gameOver) yield break;
+        Ghosts.ResetAllGhosts();
         gameReady = true;
-    }
-
-    void HitGhost()
-    {
-        if (ghostEaten) return;
-        AudioManager.instance.ReplaceAudio("gameScared", "gameScaredEaten");
-        ghostEaten = true;
+        
     }
 
     IEnumerator GoTimer()

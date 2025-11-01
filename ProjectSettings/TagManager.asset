@@ -14,6 +14,8 @@ TagManager:
   - Tile
   - Teleporter
   - Ghost
+  - GhostBox
+  - GhostWall
   layers:
   - Default
   - TransparentFX
@@ -57,9 +59,9 @@ TagManager:
   - name: Player
     uniqueID: 2009769017
     locked: 0
-  - name: Cherry
-    uniqueID: 1381548979
-    locked: 0
   - name: UI
     uniqueID: 1676025055
+    locked: 0
+  - name: Cherry
+    uniqueID: 1381548979
     locked: 0
