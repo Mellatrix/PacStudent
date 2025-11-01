@@ -32,7 +32,9 @@ public class GhostController : MonoBehaviour
         Ghost3, // random
         Ghost4  // hug walls
     };
-    public Behaviour behaviour;
+    
+    Behaviour currentBehaviour;
+    public Behaviour defaultBehaviour;
     
     public enum Direction
     {
@@ -64,6 +66,7 @@ public class GhostController : MonoBehaviour
 
     private void Start()
     {
+        currentBehaviour = defaultBehaviour;
         currentDirection = defaultDirection;
         gridData = LevelGridManager.gridData;
         currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
@@ -96,14 +99,17 @@ public class GhostController : MonoBehaviour
     {
         while (true)
         {
-            if (!GameManager.instance.gameReady) yield return null;
-
-            if (!isLerping)
+            if (GameManager.instance.gameReady)
             {
-                Vector2Int newCoordinates = ChooseNextPos();
-                ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
-                yield return LerpGhost(newCoordinates);
+                if (!isLerping && !isDead)
+                {
+                    Vector2Int newCoordinates = ChooseNextPos();
+                    ApplyMoveAnimation(gridData[newCoordinates.x, newCoordinates.y].position-gridData[currentCoordinates.x, currentCoordinates.y].position);
+                    yield return LerpGhost(newCoordinates);
+                }
             }
+            
+            yield return null;
         }
     }
     
@@ -157,7 +163,7 @@ public class GhostController : MonoBehaviour
         if (possibleDirections.Count == 1)
             return possibleDirections[0];
 
-        switch (behaviour)
+        switch (currentBehaviour)
         {
             case Behaviour.Ghost1: // equidistant or further from player
                 Vector2Int furthestCoords = Vector2Int.zero;
@@ -220,12 +226,12 @@ public class GhostController : MonoBehaviour
         {
             Vector2Int coords = GetCoordinatesFromDir(dir);
             GridData data = gridData[coords.x, coords.y];
-            Debug.Log(gridData[coords.x, coords.y].wallType);
+            //Debug.Log(gridData[coords.x, coords.y].wallType);
             if (data.wallType == GridData.WallType.outer)
             {
                 if (dir ==  Direction.up && currentDirection == Direction.up|| dir == Direction.down && currentDirection == Direction.down) continue;
                 touchingOuterWall = dir == LocalRightDir() ? 1 : 2;
-                Debug.Log(name+ " "  + dir);
+                //Debug.Log(name+ " "  + dir);
                 return true; 
             }
         }
@@ -421,20 +427,65 @@ public class GhostController : MonoBehaviour
         ghostManager = man;
     }
 
+    public void OverrideBehaviour(Behaviour behaviour)
+    {
+        currentBehaviour = behaviour;
+    }
+
     public void Die()
     {
-        isDead = true;
+        if (isDead) return;
+        StopAllCoroutines();
         StartCoroutine(DieCoroutine());
     }
 
+    public void ResetGhost()
+    {
+        StopAllCoroutines();
+        transform.position = gridData[startPosition.x, startPosition.y].position;
+        currentDirection = defaultDirection;
+        currentCoordinates  = startPosition;
+        touchingOuterWall = 0;
+        
+        isDead = false;
+        isLerping = false;
+
+        StartCoroutine(Move());
+    }
+
+    float GetDurationFlyToSpawn()
+    {
+        float distance = Vector3.Distance(transform.position, gridData[startPosition.x, startPosition.y].position);
+        return  distance / speed;
+    }
+    
     IEnumerator DieCoroutine()
     {
+        isDead = true;
+        isLerping = false;
         animator.SetLayerWeight(3, 1);
+        float duration = GetDurationFlyToSpawn();
+        Vector2 startPos =  transform.position;
+        Vector2 targetPos =  gridData[startPosition.x, startPosition.y].position;
         
-        yield return new WaitForSeconds(3f);
+        float t = 0f;
+        while (t < duration)
+        {
+            t += Time.deltaTime;
+            transform.position = Vector2.Lerp(startPos, targetPos, t/duration);
+            yield return null;
+        }
+
+        transform.position = targetPos;
+        currentDirection = defaultDirection;
+        currentCoordinates  = startPosition;
+        touchingOuterWall = 0;
+        
         isDead = false;
         
         animator.SetLayerWeight(3, 0);
+        
+        StartCoroutine(Move());
     }
 
     public void SetGhostWall(Transform ghostWall)

@@ -238,7 +238,9 @@ public class GameManager : MonoBehaviour
         gameReady = false;
         yield return new WaitForSeconds(1f);    // wait for player to finish die anim, particles, sound, respawn
         if (gameOver) yield break;
+        Ghosts.ResetAllGhosts();
         gameReady = true;
+        
     }
 
     void HitGhost()

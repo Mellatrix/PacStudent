@@ -57,7 +57,7 @@ public class PacStudentController : MonoBehaviour
         gridData = LevelGridManager.gridData;
         currentCoordinates = LevelGridManager.GetCoordinatesFromPoint(transform.position);
         startPosition = currentCoordinates;
-        
+        animator.SetBool("Exit", true);
         StartCoroutine(ApplyPlayerInput());
     }
     
@@ -257,14 +257,15 @@ public class PacStudentController : MonoBehaviour
 
     IEnumerator DieRoutine()
     {
-        animator.SetTrigger("Die");
+        animator.SetBool("Die", true);
         currentInput = PlayerInput.none;
         lastInput = PlayerInput.none;
         // play particles
         Instantiate(deathParticles, transform.position, Quaternion.identity);   
-        yield return new WaitForSeconds(0.9f);
+        yield return new WaitForSeconds(1f);
         
         SetPlayerPositionOnGrid(startPosition);
         animator.SetBool("Exit", true);
+        animator.SetBool("Die", false);
     }
 }

@@ -2,31 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScenesManager : MonoBehaviour
 {
     public static ScenesManager instance;
+    public UnityAction OnSceneLoaded, BeforeSceneLoaded;
     
     private void Awake()
     {
-        if (instance != null)
+        if (instance == null && instance != this)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
             Destroy(gameObject);
-        instance = this;
-        DontDestroyOnLoad(gameObject);
         
         Button[] buttons = FindObjectsByType<Button>(FindObjectsSortMode.None);
         foreach (Button button in buttons)
         {
             button.onClick.AddListener(() => AudioManager.instance.PlayAudio("btn"));
         }
+
     }
 
     void Start()
     {
-        SceneManager.sceneLoaded += InitialiseLevel;
-        InitialiseLevel();
+        OnSceneLoaded += InitialiseLevel;
+        OnSceneLoaded.Invoke();
     }
 
     private void PlayBGM(Scene scene)
@@ -44,10 +50,10 @@ public class ScenesManager : MonoBehaviour
         }
     }
 
-    private void InitialiseLevel(Scene scene = default, LoadSceneMode mode = LoadSceneMode.Single)
+    private void InitialiseLevel()
     {
         SetSceneButtons();
-        
+        //Debug.Log("InitialiseLevel");
         // PlayBGM(SceneManager.GetActiveScene());
     }
 
@@ -63,7 +69,14 @@ public class ScenesManager : MonoBehaviour
     
     public void LoadScene(string scene)
     {
-        SceneManager.LoadScene(scene);
-        Debug.Log(scene);
+        StartCoroutine(LoadSceneRoutine(scene));
+    }
+
+    IEnumerator LoadSceneRoutine(string scene)
+    {
+        BeforeSceneLoaded.Invoke();
+        Debug.Log("LoadSceneRoutine");
+        yield return SceneManager.LoadSceneAsync(scene);
+        OnSceneLoaded.Invoke();
     }
 }

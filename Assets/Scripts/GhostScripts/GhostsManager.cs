@@ -57,17 +57,34 @@ public class GhostsManager : MonoBehaviour
         return ghostBox.Contains(pos);
     }
 
+    public void ResetAllGhosts()
+    {
+        state = GhostState.Normal;
+        for (int i = 0; i < ghosts.Length; i++)
+        {
+            ghosts[i].speed = player.speed * 0.9f;
+            ghosts[i].OverrideBehaviour(ghosts[i].defaultBehaviour);
+            ghosts[i].ResetGhost();
+            
+            /*animator.SetInteger("GhostState", (int)ghostState);*/
+            for (int j = 0; j < 4; j++)
+            {
+                animators[i].SetLayerWeight(j, (int)state == j? 1 : 0);
+            }
+        }
+    }
+
     void UpdateGhosts()
     {
         for (int i = 0; i < ghosts.Length; i++)
         {
             ghosts[i].speed = ghostState == GhostState.Normal ? player.speed * 0.9f : 0.5f;
+            ghosts[i].OverrideBehaviour(ghostState == GhostState.Normal ? ghosts[i].defaultBehaviour :  GhostController.Behaviour.Ghost1);
             
             /*animator.SetInteger("GhostState", (int)ghostState);*/
             for (int j = 0; j < 3; j++)
             {
-                animators[j].SetLayerWeight(i, (int)state == j? 1 : 0);
-                
+                animators[i].SetLayerWeight(j, (int)state == j? 1 : 0);
             }
         }
     }
