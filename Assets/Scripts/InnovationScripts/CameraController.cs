@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     private Vector3 offset;
     public float smoothSpeed = 1.5f;
 
-    public Bounds camBounds;
+    public Bounds fourthreeBounds, sixteenNineBounds;
     private Camera camera;
 
     private float camHeight, camWidth;
@@ -42,11 +42,15 @@ public class CameraController : MonoBehaviour
 
     float GetXClamp(Vector3 smoothPos)
     {
+        float aspect =  (float)Screen.width / (float)Screen.height;
+        Bounds camBounds = aspect < 1.5f? fourthreeBounds : sixteenNineBounds;
         return Mathf.Clamp(smoothPos.x, camBounds.min.x + camWidth, camBounds.max.x - camWidth);
     }
 
     float GetYClamp(Vector3 smoothPos)
     {
+        float aspect =  (float)Screen.width / (float)Screen.height;
+        Bounds camBounds = aspect < 1.5f? fourthreeBounds : sixteenNineBounds;
         return Mathf.Clamp(smoothPos.y, camBounds.min.y + camWidth, camBounds.max.y - camHeight);
     }
 }

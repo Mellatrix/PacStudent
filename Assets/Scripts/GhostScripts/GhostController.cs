@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Security.Cryptography;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using Vector2 = UnityEngine.Vector2;
@@ -35,6 +36,8 @@ public class GhostController : MonoBehaviour
     
     Behaviour currentBehaviour;
     public Behaviour defaultBehaviour;
+
+    public bool isArcade = false;
     
     public enum Direction
     {
@@ -66,6 +69,8 @@ public class GhostController : MonoBehaviour
 
     private void Start()
     {
+        /*if (isArcade)
+            defaultBehaviour = GetRandomBehaviour();*/
         currentBehaviour = defaultBehaviour;
         currentDirection = defaultDirection;
         gridData = LevelGridManager.gridData;
@@ -76,6 +81,26 @@ public class GhostController : MonoBehaviour
         player = GameManager.instance.Player;
         
         StartCoroutine(Move());
+        
+    }
+
+    IEnumerator SetRandomBehaviour()
+    {
+        while (true)
+        {
+            if (ghostManager.ghostState == GhostsManager.GhostState.Normal)
+            {
+                currentBehaviour = GetRandomBehaviour();
+                
+            }
+
+            yield return new WaitForSeconds(10f);
+        }
+    }
+
+    Behaviour GetRandomBehaviour()
+    {
+        return (Behaviour)Random.Range(0, 4);
     }
 
     Direction GetOppositeDirection(Direction dir)

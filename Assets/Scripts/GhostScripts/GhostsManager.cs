@@ -16,6 +16,7 @@ public class GhostsManager : MonoBehaviour
     private int ghostsDead = 0;
     
     private float playerSpeed;
+    
 
     public int numGhostsDead
     {

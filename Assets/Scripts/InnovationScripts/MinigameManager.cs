@@ -48,7 +48,70 @@ public class MinigameManager : MonoBehaviour
         
         collectedIngredients[ingredient]++;
         UpdateUI();
-        IsRecipeComplete();
+        Recipe recipe;
+        if (IsRecipeComplete(out recipe))
+        {
+            Debug.Log(recipe.recipeName);
+            switch (recipe.recipeName)
+            {
+                case "Mushroomy!":
+                    StartCoroutine(ShowTimer(shroomTime,0.2f));
+                    if (!hasShownShroomTip)
+                    {
+                        text.text = "Mushroomy! tasty (+score)";
+                        StartCoroutine(ShowText());
+                        hasShownShroomTip = true;
+                    }
+                    break;
+                case "So Honey":
+                    StartCoroutine(ShowTimer(honeyTime,15f));
+                    if (!hasShownHoneyTip)
+                    {
+                        text.text = "So Honey make everything tasty (+multiplier)";
+                        StartCoroutine(ShowText());
+                        hasShownHoneyTip = true;
+                    }
+                    break;
+                case "Ratthew":
+                    StartCoroutine(ShowTimer(ratTime,10f));
+                    if (!hasShownRatTip)
+                    {
+                        text.text = "Ratthew go zoom (+speed)";
+                        StartCoroutine(ShowText());
+                        hasShownRatTip = true;
+                    }
+                    break;
+            }
+        }
+    }
+
+    IEnumerator ShowTimer(Image[] timeFills, float time)
+    {
+        float t = time;
+        while (t > 0)
+        {
+            t -= Time.deltaTime;
+            foreach (var fill in timeFills)
+            {
+                fill.fillAmount = t / time;
+            }
+            yield return null;
+        }
+
+        foreach (var fill in timeFills)
+        {
+            fill.fillAmount = 0;
+        }
+    }
+
+    private bool hasShownShroomTip = false;
+    bool hasShownHoneyTip = false;
+    bool  hasShownRatTip = false;
+    IEnumerator ShowText()
+    {
+        text.transform.parent.gameObject.SetActive(true);
+        yield return new WaitForSeconds(2f);
+        text.transform.parent.gameObject.SetActive(false);
     }
 
     void UpdateUI()
@@ -73,8 +136,9 @@ public class MinigameManager : MonoBehaviour
         }
     }
 
-    bool IsRecipeComplete()
+    bool IsRecipeComplete(out Recipe completedRecipe)
     {
+        completedRecipe = null;
         foreach (Recipe recipe in recipes)
         {
             if (recipe.IsCompleted(collectedIngredients))
@@ -84,8 +148,7 @@ public class MinigameManager : MonoBehaviour
                 foreach (var req in recipe.ingredients)
                     collectedIngredients[req.Key] -= req.Value;
                 
-                UpdateUI();
-                
+                completedRecipe = recipe;
                 return true;
             }
         }
@@ -153,7 +216,7 @@ public class MinigameManager : MonoBehaviour
     
     void QueueMiniGame(Transform tracer, Action action)
     {
-        Debug.Log("Queueing MiniGame");
+        //Debug.Log("Queueing MiniGame");
         IEnumerator newMiniGame = MiniGame(tracer, action);
         minigameQue.Enqueue(newMiniGame);
         if (!isMinigameActive)
