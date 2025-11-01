@@ -62,7 +62,7 @@ public class ScenesManager : MonoBehaviour
         GameObject.FindGameObjectWithTag("L1")?.GetComponent<Button>().
             onClick.AddListener(() => LoadScene("Level1"));
         GameObject.FindGameObjectWithTag("L2")?.GetComponent<Button>().
-            onClick.AddListener(() => LoadScene("Level2"));
+            onClick.AddListener(() => LoadScene("InnovationScene"));
         GameObject.FindGameObjectWithTag("Exit")?.GetComponent<Button>().
             onClick.AddListener(() => LoadScene("StartScene"));
     }
@@ -78,5 +78,10 @@ public class ScenesManager : MonoBehaviour
         Debug.Log("LoadSceneRoutine");
         yield return SceneManager.LoadSceneAsync(scene);
         OnSceneLoaded.Invoke();
+    }
+
+    public int GetLevelIndex()
+    {
+        return SceneManager.GetActiveScene().buildIndex;
     }
 }

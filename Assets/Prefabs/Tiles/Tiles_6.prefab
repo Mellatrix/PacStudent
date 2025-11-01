@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 354503716265592876}
   - component: {fileID: 6484252459940843323}
   - component: {fileID: 3614829399323653860}
+  - component: {fileID: 908334825379064177}
   m_Layer: 0
   m_Name: Tiles_6
   m_TagString: PowerPellet
@@ -169,3 +170,15 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.18, y: 0.23}
   m_EdgeRadius: 0
+--- !u!114 &908334825379064177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318316348178668245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c649f9eff6b0a449406cce483674f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

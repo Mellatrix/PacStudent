@@ -81,6 +81,10 @@ public class GameManager : MonoBehaviour
 
     private int pelletCount;
     
+    [Header("Arcade Settings")]
+    public bool isArcade = false;
+    public GameObject[] pellets;
+    
     private void Awake()
     {
         instance = this;
@@ -96,6 +100,20 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(GoTimer());
+    }
+
+    public void RespawnPellet(Transform parent, float cooldown, int type)
+    {
+        if (!isArcade) return;
+        StartCoroutine(RespawnPelletCoroutine(parent, cooldown, type));
+    }
+
+    IEnumerator RespawnPelletCoroutine(Transform parent, float cooldown, int type)
+    {
+        yield return new WaitForSeconds(cooldown);
+        GameObject pellet = Instantiate(pellets[type], parent);
+        pellet.transform.localPosition = Vector3.zero;
+        pellet.transform.localRotation = Quaternion.identity;
     }
 
     public void CountPellets(int num)

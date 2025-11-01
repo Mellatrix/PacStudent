@@ -24,7 +24,7 @@ TagManager:
   - Water
   - UI
   - Borders
-  - 
+  - MiniGameTracers
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: Cherry
     uniqueID: 1381548979
+    locked: 0
+  - name: MiniGame
+    uniqueID: 1477017381
     locked: 0
