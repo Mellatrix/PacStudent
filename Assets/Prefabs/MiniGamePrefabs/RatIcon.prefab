@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3354450269529462416}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
-  m_LocalPosition: {x: 0.06, y: 0, z: 0}
-  m_LocalScale: {x: 1.9700001, y: 1.9700001, z: 1.9700001}
+  m_LocalRotation: {x: -0, y: -0, z: -0.25800714, w: 0.9661431}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.4500002, y: 1.4500002, z: 1.4500002}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6217184674600345248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.904}
 --- !u!212 &3408145233228220839
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 1477017381
   m_SortingLayer: 4
   m_SortingOrder: 5
-  m_Sprite: {fileID: -8357494700477734146, guid: 950efbe99229900499408161b57489d4, type: 3}
+  m_Sprite: {fileID: 8991954916765810872, guid: 577bf6a0b4281334dbe2abe9418acda1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1570464261239993606}
   - component: {fileID: 2726545599227079908}
   m_Layer: 7
-  m_Name: MushroomIcon
+  m_Name: RatIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -289,7 +289,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7960785, g: 0.8000001, b: 0.7960785, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -526,17 +526,17 @@ ParticleSystem:
       maxColor: {r: 0.14465404, g: 0.14465404, b: 0.14465404, a: 1}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.70980394, g: 0.4784314, b: 0.3529412, a: 1}
-        key1: {r: 0.882353, g: 0.8313726, b: 0.5176471, a: 1}
-        key2: {r: 0, g: 0, b: 0, a: 0}
+        key0: {r: 0.050980397, g: 0.47450984, b: 0.21960786, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 1}
+        key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
         key5: {r: 0, g: 0, b: 0, a: 0}
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 33924
-        ctime2: 0
+        ctime1: 65535
+        ctime2: 65535
         ctime3: 0
         ctime4: 0
         ctime5: 0
@@ -5333,7 +5333,7 @@ SpriteRenderer:
   m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.70980394, g: 0.4784314, b: 0.3529412, a: 1}
+  m_Color: {r: 0.03137255, g: 0.47450984, b: 0.22352943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5630,8 +5630,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.25
+      scalar: 0.3
+      minScalar: 0.15
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -6323,7 +6323,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 10
+        scalar: 7
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -6837,8 +6837,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startFrame:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0
+      minMaxState: 3
+      scalar: 0.9999
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -6897,7 +6897,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -8357494700477734146, guid: 950efbe99229900499408161b57489d4, type: 3}
+    - sprite: {fileID: 8271730618534065979, guid: 577bf6a0b4281334dbe2abe9418acda1, type: 3}
+    - sprite: {fileID: 4309189870305659307, guid: 577bf6a0b4281334dbe2abe9418acda1, type: 3}
+    - sprite: {fileID: 2111868921171472450, guid: 577bf6a0b4281334dbe2abe9418acda1, type: 3}
+    - sprite: {fileID: 4619293468511892420, guid: 577bf6a0b4281334dbe2abe9418acda1, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:

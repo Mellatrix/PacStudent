@@ -40,12 +40,14 @@ public class PlayerCollisionController : MonoBehaviour
             GameManager.instance.AddScore(10);
             GameManager.instance.CountPellets(-1);
             GameManager.instance.RespawnPellet(collision.transform.parent, 30, 0);
+            GameManager.instance.CollectIngredient(Recipe.Ingredient.shroom);
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Cherry"))
         {
             AudioManager.instance.PlayAudioRandom("burp");
             GameManager.instance.AddScore(100);
+            GameManager.instance.CollectIngredient(Recipe.Ingredient.honey);
             Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("PowerPellet"))
@@ -64,6 +66,10 @@ public class PlayerCollisionController : MonoBehaviour
             {
                 playerController.Die();
                 AudioManager.instance.PlayAudioRandom("die");
+            }
+            else
+            {
+                GameManager.instance.CollectIngredient(Recipe.Ingredient.rat);
             }
         }
             

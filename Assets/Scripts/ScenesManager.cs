@@ -82,6 +82,7 @@ public class ScenesManager : MonoBehaviour
 
     public int GetLevelIndex()
     {
-        return SceneManager.GetActiveScene().buildIndex;
+        return
+            SceneManager.GetActiveScene().buildIndex;
     }
 }

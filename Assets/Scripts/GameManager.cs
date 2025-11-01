@@ -84,6 +84,8 @@ public class GameManager : MonoBehaviour
     [Header("Arcade Settings")]
     public bool isArcade = false;
     public GameObject[] pellets;
+    public ParticleSystem[] multiplierParticles;
+    public MinigameManager  minigameManager;
     
     private void Awake()
     {
@@ -102,6 +104,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GoTimer());
     }
 
+    public void CollectIngredient(Recipe.Ingredient ingredient)
+    {
+        if (!isArcade) return;
+        minigameManager.CollectIngredient(ingredient);
+    }
+    
     public void RespawnPellet(Transform parent, float cooldown, int type)
     {
         if (!isArcade) return;
@@ -166,9 +174,39 @@ public class GameManager : MonoBehaviour
         ScenesManager.instance.LoadScene("StartScene");
     }
 
+    int multiplier = 1;
+    public int Multiplier
+    {
+        get {return multiplier;}
+
+        set
+        {
+            if (!isArcade)
+            {
+                multiplier = 1;
+                return;
+            }
+            multiplier = Mathf.Clamp(value, 1, 4);
+            UpdateMultiplierParticles();
+        }
+    }
+
+    void UpdateMultiplierParticles()
+    {
+        for (int i = 0; i < multiplierParticles.Length; i++)
+        {
+            multiplierParticles[i].loop = i == multiplier - 2;
+            
+            if (i == multiplier - 2)
+            {
+                multiplierParticles[i].Play();
+            }
+        }
+    }
+    
     public void AddScore(int scoreToAdd)
     {
-        score += scoreToAdd;
+        score += scoreToAdd * multiplier;
     }
     
     private void UpdateTimer()
@@ -228,7 +266,7 @@ public class GameManager : MonoBehaviour
     
     public bool CanHitGhost(GhostController ghost)   // add ghost hit as param
     {
-        Debug.Log(Ghosts.ghostState);
+        //Debug.Log(Ghosts.ghostState);
         switch (Ghosts.ghostState)
         {
             case GhostsManager.GhostState.Normal:
