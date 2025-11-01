@@ -48814,15 +48814,10 @@ MonoBehaviour:
   - {fileID: 2015713079}
   goTimerText: {fileID: 944240131}
   gameOverPanel: {fileID: 1095246173}
-  isArcade: 1
-  pellets:
-  - {fileID: 6406790231385072180, guid: 020cd128d58d52c49a95662d3be8d45d, type: 3}
-  - {fileID: 318316348178668245, guid: 62fc0d977fe692445957ece21c66559e, type: 3}
-  multiplierParticles:
-  - {fileID: 272749325}
-  - {fileID: 1105015970}
-  - {fileID: 1190253680}
-  minigameManager: {fileID: 786550978}
+  isArcade: 0
+  pellets: []
+  multiplierParticles: []
+  minigameManager: {fileID: 0}
 --- !u!4 &860012757
 Transform:
   m_ObjectHideFlags: 0
