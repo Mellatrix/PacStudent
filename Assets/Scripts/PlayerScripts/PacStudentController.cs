@@ -9,6 +9,7 @@ using UnityEngine;
 public class PacStudentController : MonoBehaviour
 {
     public float speed;
+    public float speedMultiplier = 1;
     GridData[,] gridData;
     private Vector2Int currentCoordinates;
 
@@ -136,7 +137,7 @@ public class PacStudentController : MonoBehaviour
     {
         isLerping = true;
         float t = 0;
-        float duration = 1/speed; //1 tile
+        float duration = 1/speed/speedMultiplier; //1 tile
 
         float stepSoundTimer = duration;
 

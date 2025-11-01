@@ -14,6 +14,9 @@ public class GhostsManager : MonoBehaviour
     private PacStudentController player;
 
     private int ghostsDead = 0;
+    
+    private float playerSpeed;
+    
 
     public int numGhostsDead
     {
@@ -68,6 +71,7 @@ public class GhostsManager : MonoBehaviour
         }
 
         player = GameManager.instance.Player;
+        playerSpeed = player.speed;
     }
 
     public bool IsInsideGhostBox(Vector2 pos)
@@ -80,7 +84,7 @@ public class GhostsManager : MonoBehaviour
         state = GhostState.Normal;
         for (int i = 0; i < ghosts.Length; i++)
         {
-            ghosts[i].speed = player.speed * 0.9f;
+            ghosts[i].speed = playerSpeed * 0.9f;
             ghosts[i].OverrideBehaviour(ghosts[i].defaultBehaviour);
             ghosts[i].ResetGhost();
             
@@ -96,7 +100,7 @@ public class GhostsManager : MonoBehaviour
     {
         for (int i = 0; i < ghosts.Length; i++)
         {
-            ghosts[i].speed = ghostState == GhostState.Normal ? player.speed * 0.9f : 0.5f;
+            ghosts[i].speed = ghostState == GhostState.Normal ? playerSpeed * 0.9f : 0.5f;
             ghosts[i].OverrideBehaviour(ghostState == GhostState.Normal ? ghosts[i].defaultBehaviour :  GhostController.Behaviour.Ghost1);
             
             /*animator.SetInteger("GhostState", (int)ghostState);*/

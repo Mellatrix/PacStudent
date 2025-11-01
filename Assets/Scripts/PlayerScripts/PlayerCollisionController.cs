@@ -37,22 +37,26 @@ public class PlayerCollisionController : MonoBehaviour
         else if (collision.CompareTag("Pellet"))
         {
             AudioManager.instance.PlayAudioRandom("eat");
-            Destroy(collision.gameObject);
             GameManager.instance.AddScore(10);
             GameManager.instance.CountPellets(-1);
+            GameManager.instance.RespawnPellet(collision.transform.parent, 30, 0);
+            GameManager.instance.CollectIngredient(Recipe.Ingredient.shroom);
+            Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Cherry"))
         {
             AudioManager.instance.PlayAudioRandom("burp");
-            Destroy(collision.gameObject);
             GameManager.instance.AddScore(100);
+            GameManager.instance.CollectIngredient(Recipe.Ingredient.honey);
+            Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("PowerPellet"))
         {
             AudioManager.instance.PlayAudioRandom("evil");
             GameManager.instance.ActivateScaredMode(true);
-            Destroy(collision.gameObject);
+            GameManager.instance.RespawnPellet(collision.transform.parent, 50, 1);
             GameManager.instance.AddScore(50);
+            Destroy(collision.gameObject);
         }
         else if (collision.CompareTag("Ghost"))
         {
@@ -62,6 +66,10 @@ public class PlayerCollisionController : MonoBehaviour
             {
                 playerController.Die();
                 AudioManager.instance.PlayAudioRandom("die");
+            }
+            else
+            {
+                GameManager.instance.CollectIngredient(Recipe.Ingredient.rat);
             }
         }
             
