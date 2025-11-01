@@ -29,7 +29,7 @@ public class AudioManager : MonoBehaviour
         ScenesManager.instance.BeforeSceneLoaded += DestroyLevelMusic;
     }
 
-    void DestroyLevelMusic()
+    public void DestroyLevelMusic()
     {
         for (int i = activeAudios.Count - 1; i >= 0; i--)
         {

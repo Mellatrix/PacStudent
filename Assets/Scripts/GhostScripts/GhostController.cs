@@ -435,6 +435,7 @@ public class GhostController : MonoBehaviour
     public void Die()
     {
         if (isDead) return;
+        ghostManager.numGhostsDead++;
         StopAllCoroutines();
         StartCoroutine(DieCoroutine());
     }
@@ -446,7 +447,9 @@ public class GhostController : MonoBehaviour
         currentDirection = defaultDirection;
         currentCoordinates  = startPosition;
         touchingOuterWall = 0;
-        
+
+        if (isDead)
+            ghostManager.numGhostsDead--;
         isDead = false;
         isLerping = false;
 
@@ -482,6 +485,7 @@ public class GhostController : MonoBehaviour
         touchingOuterWall = 0;
         
         isDead = false;
+        ghostManager.numGhostsDead--;
         
         animator.SetLayerWeight(3, 0);
         

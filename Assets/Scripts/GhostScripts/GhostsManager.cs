@@ -12,6 +12,24 @@ public class GhostsManager : MonoBehaviour
     private Transform[] ghostWalls;
 
     private PacStudentController player;
+
+    private int ghostsDead = 0;
+
+    public int numGhostsDead
+    {
+        get { return ghostsDead; }
+        set
+        {
+            if (state != GhostState.Normal)
+            {
+                if (ghostsDead == 0 && value != ghostsDead)
+                    AudioManager.instance.ReplaceAudio("gameScared", "gameScaredEaten");
+                else if (value == 0)
+                    AudioManager.instance.ReplaceAudio("gameScaredEaten", "gameScared");
+            }
+            ghostsDead = value; 
+        }
+    }
     
     public enum GhostState
     {
